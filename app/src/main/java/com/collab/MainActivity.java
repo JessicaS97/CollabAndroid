@@ -2,6 +2,7 @@ package com.collab;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,33 +19,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ImageView logInButton = findViewById(R.id.buttonLogIn);
-        logInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
-                        MainActivity.this, R.style.BottomSheetDialogTheme
-                );
-                View bottomSheetView = LayoutInflater.from(getApplicationContext())
-                        .inflate(
-                                R.layout.layout_bottom_sheet_login,
-                                (LinearLayout)findViewById((R.id.bottomSheetContainerLogIn))
-                        );
-                bottomSheetView.findViewById(R.id.buttonLoggedIn).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(MainActivity.this, "Logged In", Toast.LENGTH_SHORT).show();
-                        bottomSheetDialog.dismiss();
-                    }
-                });
-                bottomSheetDialog.setContentView(bottomSheetView);
-                bottomSheetDialog.show();
-            }
-        });
     }
 
     public void viewSignUpPage(View view) {
-        setContentView(R.layout.activity_sign_up);
+        Intent switchActivityIntent = new Intent(getApplicationContext(), SignUp.class);
+        startActivity(switchActivityIntent);
+    }
+
+    public void viewLogInPage(View view) {
+        Intent switchActivityIntent = new Intent(getBaseContext(), LogIn.class);
+        startActivity(switchActivityIntent);
     }
 }
