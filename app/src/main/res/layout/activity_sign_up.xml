@@ -9,11 +9,45 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="206dp"
-        android:layout_height="152dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/background_small_layers" />
+
+    <ImageView
+        android:layout_width="27dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:clickable="true"
+        android:duplicateParentState="true"
+        android:onClick="goBackToMainScreen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_black_icon" />
+
+    <TextView
+        android:id="@+id/interestsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Interests"
+        tools:layout_editor_absoluteX="317dp"
+        tools:layout_editor_absoluteY="655dp" />
+
+    <TextView
+        android:id="@+id/signUpTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:fontFamily="@font/jaldi"
+        android:text="Sign up and start bonding"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
