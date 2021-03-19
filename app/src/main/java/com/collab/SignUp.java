@@ -14,9 +14,9 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
     }
 
-    public void goBackToMainScreen(View view) {
+    public void goToInterestsPage(View view) {
         finish();
-        Intent switchActivityIntent = new Intent(getBaseContext(), MainActivity.class);
+        Intent switchActivityIntent = new Intent(getBaseContext(), Interests.class);
         startActivity(switchActivityIntent);
     }
 }

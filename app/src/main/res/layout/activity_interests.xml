@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".SignUp">
+
+    <Button
+        android:id="@+id/button_healthFitness"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:alpha="0.5"
+        android:background="@drawable/rounded_shape_red"
+        android:fontFamily="@font/jaldi"
+        android:onClick="interestSelected"
+        android:text="Health and Fitness"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_artsCulture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_tech" />
+
+    <Button
+        android:id="@+id/button_artsCulture"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:alpha="0.5"
+        android:background="@drawable/rounded_shape"
+        android:fontFamily="@font/jaldi"
+        android:onClick="interestSelected"
+        android:text="Arts and culture"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_businessCareer" />
+
+    <Button
+        android:id="@+id/button_tech"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:alpha=".5"
+        android:background="@drawable/rounded_shape_purple"
+        android:fontFamily="@font/jaldi"
+        android:onClick="interestSelected"
+        android:text="Tech"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_businessCareer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_fashionBeauty" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/background_small_layers" />
+
+    <ImageView
+        android:layout_width="27dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:clickable="true"
+        android:duplicateParentState="true"
+        android:onClick="goBackToSignUpPage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_black_icon" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="goToInterestsPage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/interestsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jaldi"
+            android:text="Finish"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="38dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/forward_icon" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/signUpTitle"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="84dp"
+        android:fontFamily="@font/jaldi"
+        android:gravity="center"
+        android:lineHeight="35dp"
+        android:text="Choose categories that interest you"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_fashionBeauty"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:alpha="0.5"
+        android:background="@drawable/rounded_shape"
+        android:fontFamily="@font/jaldi"
+        android:onClick="interestSelected"
+        android:text="Fashion and Beauty"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_hobbies"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpTitle" />
+
+    <Button
+        android:id="@+id/button_hobbies"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:alpha=".5"
+        android:background="@drawable/rounded_shape_purple"
+        android:fontFamily="@font/jaldi"
+        android:onClick="interestSelected"
+        android:text="Hobbies"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpTitle" />
+
+    <Button
+        android:id="@+id/button_businessCareer"
+        android:layout_width="209dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:alpha=".5"
+        android:background="@drawable/rounded_shape_red"
+        android:fontFamily="@font/jaldi"
+        android:onClick="interestSelected"
+        android:text="Business And Carrer"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_hobbies" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
