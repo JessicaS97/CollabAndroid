@@ -44,20 +44,23 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener {
         logInLayout = (ConstraintLayout) findViewById(R.id.logInLayout);
         logInButton = (ImageView) findViewById((R.id.buttonLoggedIn));
 
-
-        passwordInputLayout.setOnKeyListener(this);
         logInLayout.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                View focusedView = getCurrentFocus();
+
+                if (focusedView != null) {
+                    inputMethodManager.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
+                    view.requestFocusFromTouch();
+                }
             }
         });
 
         logInButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 if (emailInputLayout.getText().toString().trim() == "" || passwordInputLayout.getText().toString().trim() == "") {
                     Toast.makeText(getApplicationContext(),"Please enter email and password", Toast.LENGTH_LONG).show();
                 }
@@ -75,6 +78,8 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener {
 
     public void goBackToMainScreen(View view) {
         finish();
+        Intent switchActivityIntent = new Intent(getBaseContext(), MainActivity.class);
+        startActivity(switchActivityIntent);
     }
 
     public void goToSignUpPage(View view) {

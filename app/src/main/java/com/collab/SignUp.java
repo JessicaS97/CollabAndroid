@@ -129,18 +129,15 @@ public class SignUp extends AppCompatActivity {
                 }
             }
         });
-
-        passwordInputLayout.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-            }
-        });
     }
 
     public static boolean isValidEmail(CharSequence target) {
         return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
+    }
+
+    public void goBackToMainScreen(View view) {
+        finish();
+        Intent switchActivityIntent = new Intent(getBaseContext(), MainActivity.class);
+        startActivity(switchActivityIntent);
     }
 }
