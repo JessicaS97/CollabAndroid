@@ -55,28 +55,6 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener {
             }
         });
 
-        emailInputLayout.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                String email = emailInputLayout.getText().toString().trim();
-
-                if (!isValidEmail(email)) {
-                    Toast.makeText(getApplicationContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
         logInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,7 +83,4 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener {
         startActivity(switchActivityIntent);
     }
 
-    public static boolean isValidEmail(CharSequence target) {
-        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
-    }
 }

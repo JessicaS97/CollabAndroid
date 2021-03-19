@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signUpLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -16,6 +17,7 @@
         app:srcCompat="@drawable/background_small_layers" />
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="27dp"
         android:layout_height="18dp"
         android:layout_marginStart="25dp"
@@ -92,7 +94,7 @@
         app:layout_constraintTop_toBottomOf="@+id/signUpTitle" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fullNameInputLayout"
+        android:id="@+id/signUpFullNameInputLayout"
         android:layout_width="331dp"
         android:layout_height="52dp"
         android:layout_marginTop="5dp"
@@ -116,11 +118,25 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/signUpEmailTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/jaldi"
+        android:text="Email"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpFullNameInputLayout" />
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailInputLayout"
+        android:id="@+id/signUpEmailInputLayout"
         android:layout_width="331dp"
         android:layout_height="52dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="5dp"
         android:background="#F5F5F5"
         android:fontFamily="@font/jaldi"
         android:paddingLeft="10dp"
@@ -129,10 +145,10 @@
         android:textColorHint="#6C6C6C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fullNameInputLayout" >
+        app:layout_constraintTop_toBottomOf="@+id/signUpEmailTitle">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailId"
+            android:id="@+id/signUpEmailId"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/jaldi"
@@ -142,11 +158,25 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/signUpPasswordTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/jaldi"
+        android:text="Password"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpEmailInputLayout" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/signUpPasswordInputLayout"
         android:layout_width="331dp"
         android:layout_height="52dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="5dp"
         android:background="#F5F5F5"
         android:fontFamily="@font/jaldi"
         android:hint="@string/must_be_at_least_8_characters"
@@ -156,7 +186,7 @@
         android:textColorHint="#6C6C6C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailInputLayout" >
+        app:layout_constraintTop_toBottomOf="@+id/signUpPasswordTitle">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signUpPasswordId"

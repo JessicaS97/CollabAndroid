@@ -179,7 +179,7 @@
         android:background="@drawable/rounded_shape_red"
         android:fontFamily="@font/jaldi"
         android:onClick="interestSelected"
-        android:text="Business And Carrer"
+        android:text="Business And Career"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_hobbies" />
