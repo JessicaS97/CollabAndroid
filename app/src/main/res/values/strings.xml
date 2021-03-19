@@ -7,4 +7,11 @@
     <string name="full_name">Full Name</string>
     <string name="email">Email</string>
     <string name="must_be_at_least_8_characters">must be at least 8 characters</string>
+    <string name="health_and_fitness">Health and Fitness</string>
+    <string name="arts_and_culture">Arts and culture</string>
+    <string name="finish">Finish</string>
+    <string name="choose_categories_that_interest_you">Choose categories that interest you</string>
+    <string name="fashion_and_beauty">Fashion and Beauty</string>
+    <string name="hobbies">Hobbies</string>
+    <string name="business_and_career">Business And Career</string>
 </resources>
