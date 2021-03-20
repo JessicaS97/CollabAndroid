@@ -82,6 +82,7 @@ public class SignUp extends AppCompatActivity {
                     finish();
                     Intent switchActivityIntent = new Intent(getBaseContext(), Interests.class);
                     startActivity(switchActivityIntent);
+                    overridePendingTransition(0, 0);
                 }
             }
         });

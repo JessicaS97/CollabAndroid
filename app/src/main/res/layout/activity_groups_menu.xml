@@ -8,6 +8,7 @@
     tools:context=".GroupsMenu">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -75,5 +76,22 @@
                 android:src="@drawable/unselected_more_menu" />
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button_createGroup"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/rounded_shape_dark_purple"
+        android:fontFamily="@font/jaldi_bold"
+        android:onClick="goToCreateGroup"
+        android:text="Create group"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

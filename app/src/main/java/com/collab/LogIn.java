@@ -90,12 +90,14 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener {
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), SignUp.class);
         startActivity(switchActivityIntent);
+        overridePendingTransition(0, 0);
     }
 
     public void goToForgotPassword(View view) {
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), ForgotPassword.class);
         startActivity(switchActivityIntent);
+        overridePendingTransition(0, 0);
     }
 
 }

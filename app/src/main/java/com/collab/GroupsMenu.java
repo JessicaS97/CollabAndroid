@@ -18,17 +18,27 @@ public class GroupsMenu extends AppCompatActivity {
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
         startActivity(switchActivityIntent);
+        overridePendingTransition(0, 0);
     }
 
     public void goToMessagesMenu(View view) {
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), MessagesMenu.class);
         startActivity(switchActivityIntent);
+        overridePendingTransition(0, 0);
     }
 
     public void goToMoreMenu(View view) {
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), MoreMenu.class);
         startActivity(switchActivityIntent);
+        overridePendingTransition(0, 0);
+    }
+
+    public void goToCreateGroup(View view) {
+        finish();
+        Intent switchActivityIntent = new Intent(getBaseContext(), CreateGroupCategory.class);
+        startActivity(switchActivityIntent);
+        overridePendingTransition(0, 0);
     }
 }
