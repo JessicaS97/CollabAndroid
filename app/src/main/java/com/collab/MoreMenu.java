@@ -34,4 +34,11 @@ public class MoreMenu extends AppCompatActivity {
         startActivity(switchActivityIntent);
         overridePendingTransition(0, 0);
     }
+
+    public void goToMainScreen(View view) {
+        finish();
+        Intent switchActivityIntent = new Intent(getBaseContext(), MainActivity.class);
+        startActivity(switchActivityIntent);
+        overridePendingTransition(0, 0);
+    }
 }
