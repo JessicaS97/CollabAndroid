@@ -53,9 +53,7 @@ public class Interests extends AppCompatActivity {
         String fullName = stringArray[0];
         String email = stringArray[1];
         String password = stringArray[2];
-        ArrayList<String> interests = new ArrayList<String>();
-
-        // Add interests array
+        ArrayList<String> interests = getAllInterests();
 
         UserHelperClass helperClass = new UserHelperClass(fullName, email, password, interests);
 
@@ -66,7 +64,7 @@ public class Interests extends AppCompatActivity {
         startActivity(switchActivityIntent);
     }
 
-    public ArrayList<String> getAllInterests(View view) {
+    public ArrayList<String> getAllInterests() {
         ArrayList<String> allInterestsSelected = new ArrayList<String>();
         for (int i = 1; i <= 6; i++) {
             int id = getResources().getIdentifier("button_"+i, "id", getPackageName());
