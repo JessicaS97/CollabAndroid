@@ -193,7 +193,7 @@
         <Button
             android:layout_width="350dp"
             android:layout_height="100dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_grid"
             app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
@@ -202,7 +202,7 @@
         <Button
             android:layout_width="350dp"
             android:layout_height="100dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_grid"
             app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
