@@ -63,6 +63,10 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener {
             public void onClick(View view) {
                 if (emailInputLayout.getText().toString().trim() == "" || passwordInputLayout.getText().toString().trim() == "") {
                     Toast.makeText(getApplicationContext(),"Please enter email and password", Toast.LENGTH_LONG).show();
+                } else {
+                    finish();
+                    Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
+                    startActivity(switchActivityIntent);
                 }
             }
         });

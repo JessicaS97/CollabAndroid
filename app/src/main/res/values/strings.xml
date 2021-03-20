@@ -14,4 +14,7 @@
     <string name="fashion_and_beauty">Fashion and Beauty</string>
     <string name="hobbies">Hobbies</string>
     <string name="business_and_career">Business And Career</string>
+    <string name="search_a_group_to_join">Search a group to join</string>
+    <string name="categories">Categories</string>
+    <string name="tech">Tech</string>
 </resources>

@@ -35,4 +35,10 @@ public class Interests extends AppCompatActivity {
         }
     }
 
+    public void goToExploreMainPage(View view) {
+        finish();
+        Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
+        startActivity(switchActivityIntent);
+    }
+
 }

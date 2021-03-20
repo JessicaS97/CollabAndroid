@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:id="@+id/exploreMainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ExploreMain">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        android:src="@drawable/top_bar_purple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/exploreMainTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/jaldi_bold"
+        android:text="Explore"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:iconifiedByDefault="false"
+        android:padding="5dp"
+        android:queryBackground="@android:color/transparent"
+        android:queryHint="Search a group to join"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exploreMainTitle" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/jaldi_bold"
+        android:text="@string/categories"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="176dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_fashionBeauty"
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:alpha="0.5"
+                android:background="@drawable/rounded_shape"
+                android:fontFamily="@font/jaldi_bold"
+                android:onClick="categorySelected"
+                android:text="@string/fashion_and_beauty"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/button_hobbies"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signUpTitle" />
+
+            <Button
+                android:id="@+id/button_businessCareer"
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:alpha="0.5"
+                android:background="@drawable/rounded_shape_red"
+                android:fontFamily="@font/jaldi_bold"
+                android:onClick="categorySelected"
+                android:text="@string/business_and_career"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_hobbies" />
+
+            <Button
+                android:id="@+id/button_hobbies"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="8dp"
+                android:alpha="0.5"
+                android:background="@drawable/rounded_shape_purple"
+                android:fontFamily="@font/jaldi_bold"
+                android:onClick="categorySelected"
+                android:text="@string/hobbies"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signUpTitle" />
+
+            <Button
+                android:id="@+id/button_healthFitness"
+                android:layout_width="120dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="8dp"
+                android:alpha="0.5"
+                android:background="@drawable/rounded_shape_red"
+                android:fontFamily="@font/jaldi_bold"
+                android:onClick="categorySelected"
+                android:text="@string/health_and_fitness"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/button_artsCulture"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_tech" />
+
+            <Button
+                android:id="@+id/button_artsCulture"
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="8dp"
+                android:textAllCaps="false"
+                android:alpha="0.5"
+                android:background="@drawable/rounded_shape"
+                android:fontFamily="@font/jaldi_bold"
+                android:onClick="categorySelected"
+                android:text="@string/arts_and_culture"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_businessCareer" />
+
+            <Button
+                android:id="@+id/button_tech"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="4dp"
+                android:textAllCaps="false"
+                android:alpha=".5"
+                android:background="@drawable/rounded_shape_purple"
+                android:fontFamily="@font/jaldi_bold"
+                android:onClick="categorySelected"
+                android:text="@string/tech"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/button_businessCareer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_fashionBeauty" />
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
