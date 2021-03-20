@@ -5,29 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
-public class ExploreMain extends AppCompatActivity {
+public class GroupsMenu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_explore_main);
+        setContentView(R.layout.activity_groups_menu);
     }
 
-    public void categorySelected(View view) {
-        Button selectedInterest = (Button)findViewById(view.getId());
-        float currentAlpha = selectedInterest.getAlpha();
-        if (currentAlpha == 0.5) {
-            selectedInterest.setAlpha(1);
-        } else {
-            selectedInterest.setAlpha((float) 0.5);
-        }
-    }
-
-    public void goToGroupsMenu(View view) {
+    public void goToExploreMenu(View view) {
         finish();
-        Intent switchActivityIntent = new Intent(getBaseContext(), GroupsMenu.class);
+        Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
         startActivity(switchActivityIntent);
     }
 

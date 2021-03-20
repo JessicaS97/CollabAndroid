@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ExploreMain"></activity>
+        <activity android:name=".MoreMenu"></activity>
+        <activity android:name=".MessagesMenu" />
+        <activity android:name=".GroupsMenu" />
+        <activity android:name=".ExploreMain" />
         <activity android:name=".ForgotPassword" />
         <activity android:name=".Interests" />
         <activity android:name=".LogIn" />
