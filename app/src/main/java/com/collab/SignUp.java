@@ -107,7 +107,7 @@ public class SignUp extends AppCompatActivity {
                     String password = passwordInputLayout.getText().toString();
 
                     if (password.length() < 8) {
-                        emailInputLayout.setError("Password must be at least 8 characters long");
+                        passwordInputLayout.setError("Password must be at least 8 characters long");
                     }
                 }
             }
