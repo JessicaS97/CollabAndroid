@@ -9,6 +9,8 @@ import android.widget.Button;
 
 public class CreateGroupCategory extends AppCompatActivity {
 
+    Button selectedCategory;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,12 +25,16 @@ public class CreateGroupCategory extends AppCompatActivity {
     }
 
     public void categorySelected(View view) {
-        Button selectedInterest = (Button)findViewById(view.getId());
-        float currentAlpha = selectedInterest.getAlpha();
+        Button currentCategory = (Button)findViewById(view.getId());
+        float currentAlpha = currentCategory.getAlpha();
         if (currentAlpha == 0.5) {
-            selectedInterest.setAlpha(1);
+            currentCategory.setAlpha(1);
+            if (selectedCategory != null) {
+                selectedCategory.setAlpha((float) 0.5);
+            }
+            selectedCategory = currentCategory;
         } else {
-            selectedInterest.setAlpha((float) 0.5);
+            currentCategory.setAlpha((float) 0.5);
         }
     }
 
