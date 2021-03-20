@@ -66,4 +66,16 @@ public class Interests extends AppCompatActivity {
         startActivity(switchActivityIntent);
     }
 
+    public ArrayList<String> getAllInterests(View view) {
+        ArrayList<String> allInterestsSelected = new ArrayList<String>();
+        for (int i = 1; i <= 6; i++) {
+            int id = getResources().getIdentifier("button_"+i, "id", getPackageName());
+            Button currentInterest = (Button) findViewById(id);
+            if (currentInterest.getAlpha() == 1) {
+                allInterestsSelected.add(currentInterest.getText().toString());
+            }
+        }
+        return allInterestsSelected;
+    }
+
 }

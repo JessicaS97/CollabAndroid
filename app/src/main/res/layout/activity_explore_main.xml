@@ -79,7 +79,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button_fashionBeauty"
+                android:id="@+id/button_1"
                 android:layout_width="130dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="4dp"
@@ -93,12 +93,12 @@
                 android:text="@string/fashion_and_beauty"
                 android:textAllCaps="false"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toStartOf="@+id/button_hobbies"
+                app:layout_constraintEnd_toStartOf="@+id/button_2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/signUpTitle" />
 
             <Button
-                android:id="@+id/button_businessCareer"
+                android:id="@+id/button_4"
                 android:layout_width="130dp"
                 android:layout_height="35dp"
                 android:layout_marginEnd="8dp"
@@ -111,10 +111,10 @@
                 android:textAllCaps="false"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_hobbies" />
+                app:layout_constraintTop_toBottomOf="@+id/button_2" />
 
             <Button
-                android:id="@+id/button_hobbies"
+                android:id="@+id/button_2"
                 android:layout_width="70dp"
                 android:layout_height="35dp"
                 android:layout_marginRight="8dp"
@@ -129,7 +129,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/signUpTitle" />
 
             <Button
-                android:id="@+id/button_healthFitness"
+                android:id="@+id/button_5"
                 android:layout_width="120dp"
                 android:layout_height="35dp"
                 android:layout_marginRight="8dp"
@@ -140,12 +140,12 @@
                 android:text="@string/health_and_fitness"
                 android:textAllCaps="false"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toStartOf="@+id/button_artsCulture"
+                app:layout_constraintEnd_toStartOf="@+id/button_6"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_tech" />
+                app:layout_constraintTop_toBottomOf="@+id/button_3" />
 
             <Button
-                android:id="@+id/button_artsCulture"
+                android:id="@+id/button_6"
                 android:layout_width="110dp"
                 android:layout_height="35dp"
                 android:layout_marginRight="8dp"
@@ -157,10 +157,10 @@
                 android:textAllCaps="false"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_businessCareer" />
+                app:layout_constraintTop_toBottomOf="@+id/button_4" />
 
             <Button
-                android:id="@+id/button_tech"
+                android:id="@+id/button_3"
                 android:layout_width="60dp"
                 android:layout_height="35dp"
                 android:layout_marginRight="4dp"
@@ -171,9 +171,9 @@
                 android:text="@string/tech"
                 android:textAllCaps="false"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toStartOf="@+id/button_businessCareer"
+                app:layout_constraintEnd_toStartOf="@+id/button_4"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_fashionBeauty" />
+                app:layout_constraintTop_toBottomOf="@+id/button_1" />
 
 
         </LinearLayout>
