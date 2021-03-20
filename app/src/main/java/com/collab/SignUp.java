@@ -20,6 +20,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity {
 
@@ -29,6 +31,9 @@ public class SignUp extends AppCompatActivity {
     TextInputEditText fullNameInputLayout;
     TextInputEditText emailInputLayout;
     TextInputEditText passwordInputLayout;
+
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +84,10 @@ public class SignUp extends AppCompatActivity {
                         passwordInputLayout.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(),"Please complete all fields", Toast.LENGTH_SHORT).show();
                 } else {
+
+                    rootNode = FirebaseDatabase.getInstance();
+                    reference = rootNode.getReference("users");
+
                     finish();
                     Intent switchActivityIntent = new Intent(getBaseContext(), Interests.class);
                     startActivity(switchActivityIntent);
