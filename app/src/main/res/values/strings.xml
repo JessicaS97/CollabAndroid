@@ -18,4 +18,12 @@
     <string name="categories">Categories</string>
     <string name="tech">Tech</string>
     <string name="choose_a_category_from_below">Choose a category from below</string>
+    <string name="complete_the_details_below">Complete the details below</string>
+    <string name="name_of_group">Name of group</string>
+    <string name="group_size">Group size</string>
+    <string-array name="group_sizes">
+        <item>Small (2–4 members)</item>
+        <item>Medium (4–6 members)</item>
+        <item>Big (6+ members)</item>
+    </string-array>
 </resources>
