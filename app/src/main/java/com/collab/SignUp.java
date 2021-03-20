@@ -87,46 +87,24 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
-        emailInputLayout.addTextChangedListener(new TextWatcher() {
-
+        emailInputLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
+            public void onFocusChange(View v, boolean hasFocus) {
                 String email = emailInputLayout.getText().toString().trim();
 
                 if (!isValidEmail(email)) {
-                    Toast.makeText(getApplicationContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
+                    emailInputLayout.setError("Invalid email address");
                 }
             }
         });
 
-        passwordInputLayout.addTextChangedListener(new TextWatcher() {
-
+        passwordInputLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                String password = emailInputLayout.getText().toString().trim();
+            public void onFocusChange(View v, boolean hasFocus) {
+                String password = passwordInputLayout.getText().toString();
 
                 if (password.length() < 8) {
-                    Toast.makeText(getApplicationContext(),"Password must be at least 8 characters", Toast.LENGTH_SHORT).show();
+                    emailInputLayout.setError("Password must be at least 8 characters long");
                 }
             }
         });
