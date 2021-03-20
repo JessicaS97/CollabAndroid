@@ -105,7 +105,7 @@
             android:padding="15dp"
             android:text="Edit profile"
             android:textColor="@color/grey"
-            android:textSize="16sp"
+            android:textSize="18sp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="115dp" />
 
@@ -116,7 +116,7 @@
             android:padding="15dp"
             android:text="Email"
             android:textColor="@color/grey"
-            android:textSize="16sp"
+            android:textSize="18sp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="115dp" />
 
@@ -127,7 +127,7 @@
             android:padding="15dp"
             android:text="FAQs"
             android:textColor="@color/grey"
-            android:textSize="16sp"
+            android:textSize="18sp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="115dp" />
 
@@ -135,10 +135,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/jaldi"
+            android:onClick="goToMainScreen"
             android:padding="15dp"
             android:text="Log out"
             android:textColor="@color/red"
-            android:textSize="16sp"
+            android:textSize="18sp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="216dp" />
 

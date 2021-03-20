@@ -24,10 +24,12 @@ public class MainActivity extends AppCompatActivity {
     public void viewSignUpPage(View view) {
         Intent switchActivityIntent = new Intent(getApplicationContext(), SignUp.class);
         startActivity(switchActivityIntent);
+        overridePendingTransition(0, 0);
     }
 
     public void viewLogInPage(View view) {
         Intent switchActivityIntent = new Intent(getBaseContext(), LogIn.class);
         startActivity(switchActivityIntent);
+        overridePendingTransition(0, 0);
     }
 }

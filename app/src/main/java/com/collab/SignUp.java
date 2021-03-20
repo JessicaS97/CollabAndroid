@@ -90,10 +90,12 @@ public class SignUp extends AppCompatActivity {
         emailInputLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                String email = emailInputLayout.getText().toString().trim();
+                if (!hasFocus) {
+                    String email = emailInputLayout.getText().toString().trim();
 
-                if (!isValidEmail(email)) {
-                    emailInputLayout.setError("Invalid email address");
+                    if (!isValidEmail(email)) {
+                        emailInputLayout.setError("Invalid email address");
+                    }
                 }
             }
         });
@@ -101,10 +103,12 @@ public class SignUp extends AppCompatActivity {
         passwordInputLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                String password = passwordInputLayout.getText().toString();
+                if (!hasFocus) {
+                    String password = passwordInputLayout.getText().toString();
 
-                if (password.length() < 8) {
-                    emailInputLayout.setError("Password must be at least 8 characters long");
+                    if (password.length() < 8) {
+                        emailInputLayout.setError("Password must be at least 8 characters long");
+                    }
                 }
             }
         });
