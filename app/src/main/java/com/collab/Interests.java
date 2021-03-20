@@ -13,7 +13,12 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class Interests extends AppCompatActivity {
+
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,23 @@ public class Interests extends AppCompatActivity {
     }
 
     public void goToExploreMainPage(View view) {
+        Intent intent = getIntent();
+        String [] stringArray = intent.getStringArrayExtra("INTERESTS");
+
+        rootNode = FirebaseDatabase.getInstance();
+        reference = rootNode.getReference("users");
+
+        String fullName = stringArray[0];
+        String email = stringArray[1];
+        String password = stringArray[2];
+        String interest = "";
+
+        // Add interests array
+
+        UserHelperClass helperClass = new UserHelperClass(fullName, email, password, interest);
+
+        reference.child(email).setValue(helperClass);
+
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
         startActivity(switchActivityIntent);

@@ -23,6 +23,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class SignUp extends AppCompatActivity {
 
     ConstraintLayout signUpLayout;
@@ -31,9 +33,6 @@ public class SignUp extends AppCompatActivity {
     TextInputEditText fullNameInputLayout;
     TextInputEditText emailInputLayout;
     TextInputEditText passwordInputLayout;
-
-    FirebaseDatabase rootNode;
-    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,12 +83,10 @@ public class SignUp extends AppCompatActivity {
                         passwordInputLayout.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(),"Please complete all fields", Toast.LENGTH_SHORT).show();
                 } else {
-
-                    rootNode = FirebaseDatabase.getInstance();
-                    reference = rootNode.getReference("users");
-
                     finish();
                     Intent switchActivityIntent = new Intent(getBaseContext(), Interests.class);
+                    ArrayList interests = new ArrayList<String>();
+                    switchActivityIntent.putExtra("INTERESTS", interests);
                     startActivity(switchActivityIntent);
                     overridePendingTransition(0, 0);
                 }
