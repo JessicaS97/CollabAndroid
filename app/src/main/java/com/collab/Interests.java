@@ -45,7 +45,7 @@ public class Interests extends AppCompatActivity {
 
     public void goToExploreMainPage(View view) {
         Intent intent = getIntent();
-        String [] stringArray = intent.getStringArrayExtra("INTERESTS");
+        String [] stringArray = intent.getStringArrayExtra("SIGN_UP_DETAILS");
 
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("users");
@@ -53,11 +53,11 @@ public class Interests extends AppCompatActivity {
         String fullName = stringArray[0];
         String email = stringArray[1];
         String password = stringArray[2];
-        String interest = "";
+        ArrayList<String> interests = new ArrayList<String>();
 
         // Add interests array
 
-        UserHelperClass helperClass = new UserHelperClass(fullName, email, password, interest);
+        UserHelperClass helperClass = new UserHelperClass(fullName, email, password, interests);
 
         reference.child(email).setValue(helperClass);
 

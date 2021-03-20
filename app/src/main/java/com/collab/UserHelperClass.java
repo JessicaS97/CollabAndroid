@@ -1,12 +1,15 @@
 package com.collab;
 
+import java.util.ArrayList;
+
 public class UserHelperClass {
-    String fullName, email, password, interests;
+    String fullName, email, password;
+    ArrayList<String> interests;
 
     public UserHelperClass() {
     }
 
-    public UserHelperClass(String fullName, String email, String password, String interests) {
+    public UserHelperClass(String fullName, String email, String password, ArrayList<String> interests) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
@@ -37,11 +40,11 @@ public class UserHelperClass {
         this.password = password;
     }
 
-    public String getInterests() {
+    public ArrayList<String> getInterests() {
         return interests;
     }
 
-    public void setInterests(String interests) {
+    public void setInterests(ArrayList<String> interests) {
         this.interests = interests;
     }
 }

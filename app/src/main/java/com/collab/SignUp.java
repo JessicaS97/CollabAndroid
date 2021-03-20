@@ -85,8 +85,11 @@ public class SignUp extends AppCompatActivity {
                 } else {
                     finish();
                     Intent switchActivityIntent = new Intent(getBaseContext(), Interests.class);
-                    ArrayList interests = new ArrayList<String>();
-                    switchActivityIntent.putExtra("INTERESTS", interests);
+                    ArrayList signUpDetails = new ArrayList<String>();
+                    signUpDetails.add(fullNameInputLayout.getText().toString());
+                    signUpDetails.add(emailInputLayout.getText().toString());
+                    signUpDetails.add(passwordInputLayout.getText().toString());
+                    switchActivityIntent.putExtra("SIGN_UP_DETAILS", signUpDetails);
                     startActivity(switchActivityIntent);
                     overridePendingTransition(0, 0);
                 }
