@@ -30,6 +30,8 @@ public class Interests extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interests);
+
+        mAuth = FirebaseAuth.getInstance();
     }
 
     public void goBackToSignUpPage(View view) {

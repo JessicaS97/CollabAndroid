@@ -24,8 +24,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.drawable.DrawableCompat;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LogIn extends AppCompatActivity implements View.OnKeyListener {
@@ -35,7 +38,7 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener {
     ConstraintLayout logInLayout;
     ImageView logInButton;
 
-    private FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +81,19 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener {
                     return;
                 }
 
-                finish();
-                Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
-                startActivity(switchActivityIntent);
+                mAuth.signInWithEmailAndPassword(emailInputLayout.getText().toString(), passwordInputLayout.getText().toString())
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    finish();
+                                    Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
+                                    startActivity(switchActivityIntent);
+                                } else {
+                                    Toast.makeText(getApplicationContext(),"Failed to log in", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
             }
         });
     };
