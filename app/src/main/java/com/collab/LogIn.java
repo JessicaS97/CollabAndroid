@@ -26,6 +26,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LogIn extends AppCompatActivity implements View.OnKeyListener {
 
@@ -33,6 +34,8 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener {
     TextInputEditText passwordInputLayout;
     ConstraintLayout logInLayout;
     ImageView logInButton;
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,8 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener {
         passwordInputLayout = (TextInputEditText) findViewById(R.id.passwordInputField);
         logInLayout = (ConstraintLayout) findViewById(R.id.logInLayout);
         logInButton = (ImageView) findViewById((R.id.buttonLoggedIn));
+
+        mAuth = FirebaseAuth.getInstance();
 
         logInLayout.setOnClickListener(new View.OnClickListener() {
 
@@ -61,13 +66,21 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener {
         logInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (emailInputLayout.getText().toString().trim() == "" || passwordInputLayout.getText().toString().trim() == "") {
-                    Toast.makeText(getApplicationContext(),"Please enter email and password", Toast.LENGTH_LONG).show();
-                } else {
-                    finish();
-                    Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
-                    startActivity(switchActivityIntent);
+                if (emailInputLayout.getText().toString().isEmpty()) {
+                    emailInputLayout.setError("Email address is required");
+                    emailInputLayout.requestFocus();
+                    return;
                 }
+
+                if (passwordInputLayout.getText().toString().isEmpty()) {
+                    passwordInputLayout.setError("Password is required");
+                    passwordInputLayout.requestFocus();
+                    return;
+                }
+
+                finish();
+                Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
+                startActivity(switchActivityIntent);
             }
         });
     };

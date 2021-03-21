@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MoreMenu extends AppCompatActivity {
 
     @Override
@@ -35,9 +37,10 @@ public class MoreMenu extends AppCompatActivity {
         overridePendingTransition(0, 0);
     }
 
-    public void goToMainScreen(View view) {
+    public void signOut(View view) {
+        FirebaseAuth.getInstance().signOut();
         finish();
-        Intent switchActivityIntent = new Intent(getBaseContext(), MainActivity.class);
+        Intent switchActivityIntent = new Intent(getBaseContext(), LogIn.class);
         startActivity(switchActivityIntent);
     }
 }

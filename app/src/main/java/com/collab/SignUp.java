@@ -79,20 +79,58 @@ public class SignUp extends AppCompatActivity {
         containerGoToInterest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (fullNameInputLayout.getText().toString().equals("") || emailInputLayout.getText().toString().equals("") ||
-                        passwordInputLayout.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(),"Please complete all fields", Toast.LENGTH_SHORT).show();
-                } else {
-                    ArrayList<String> signUpDetails = new ArrayList<String>();
-                    signUpDetails.add(fullNameInputLayout.getText().toString());
-                    signUpDetails.add(emailInputLayout.getText().toString());
-                    signUpDetails.add(passwordInputLayout.getText().toString());
+                if (fullNameInputLayout.getText().toString().isEmpty()) {
+                    fullNameInputLayout.setError("Full name is required");
+                    fullNameInputLayout.requestFocus();
+                    return;
+                }
 
-                    finish();
-                    Intent switchActivityIntent = new Intent(getBaseContext(), Interests.class);
-                    switchActivityIntent.putExtra("SIGN_UP_DETAILS", signUpDetails.toArray(new String[0]));
-                    startActivity(switchActivityIntent);
-                    overridePendingTransition(0, 0);
+                if (emailInputLayout.getText().toString().isEmpty()) {
+                    emailInputLayout.setError("Email address is required");
+                    emailInputLayout.requestFocus();
+                    return;
+                }
+
+                if (!isValidEmail(emailInputLayout.getText().toString())) {
+                    emailInputLayout.setError("Invalid email address");
+                    emailInputLayout.requestFocus();
+                    return;
+                }
+
+                if (passwordInputLayout.getText().toString().isEmpty()) {
+                    passwordInputLayout.setError("Password is required");
+                    passwordInputLayout.requestFocus();
+                    return;
+                }
+
+                if (passwordInputLayout.getText().toString().length() < 6) {
+                    passwordInputLayout.setError("Password must be at least 6 characters long");
+                    passwordInputLayout.requestFocus();
+                    return;
+                }
+
+                ArrayList<String> signUpDetails = new ArrayList<String>();
+                signUpDetails.add(fullNameInputLayout.getText().toString());
+                signUpDetails.add(emailInputLayout.getText().toString());
+                signUpDetails.add(passwordInputLayout.getText().toString());
+
+                finish();
+                Intent switchActivityIntent = new Intent(getBaseContext(), Interests.class);
+                switchActivityIntent.putExtra("SIGN_UP_DETAILS", signUpDetails.toArray(new String[0]));
+                startActivity(switchActivityIntent);
+                overridePendingTransition(0, 0);
+            }
+        });
+
+        fullNameInputLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    String fullName = fullNameInputLayout.getText().toString().trim();
+
+                    if (fullName.equals("")) {
+                        fullNameInputLayout.setError("Full name is required");
+                    }
                 }
             }
         });
@@ -116,8 +154,8 @@ public class SignUp extends AppCompatActivity {
                 if (!hasFocus) {
                     String password = passwordInputLayout.getText().toString();
 
-                    if (password.length() < 8) {
-                        passwordInputLayout.setError("Password must be at least 8 characters long");
+                    if (password.length() < 6) {
+                        passwordInputLayout.setError("Password must be at least 6 characters long");
                     }
                 }
             }
