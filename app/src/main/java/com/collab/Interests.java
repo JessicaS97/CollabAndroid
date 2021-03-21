@@ -45,7 +45,7 @@ public class Interests extends AppCompatActivity {
 
     public void goToExploreMainPage(View view) {
         Intent intent = getIntent();
-        String [] stringArray = intent.getStringArrayExtra("SIGN_UP_DETAILS");
+        String [] stringArray = intent.getExtras().getStringArray("SIGN_UP_DETAILS");
 
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("users");
@@ -54,10 +54,11 @@ public class Interests extends AppCompatActivity {
         String email = stringArray[1];
         String password = stringArray[2];
         ArrayList<String> interests = getAllInterests();
+        Toast.makeText(getApplicationContext(),interests.get(0), Toast.LENGTH_LONG).show();
 
         UserHelperClass helperClass = new UserHelperClass(fullName, email, password, interests);
 
-        reference.child(email).setValue(helperClass);
+        reference.child(fullName).setValue(helperClass);
 
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);

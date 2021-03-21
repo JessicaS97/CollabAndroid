@@ -83,13 +83,14 @@ public class SignUp extends AppCompatActivity {
                         passwordInputLayout.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(),"Please complete all fields", Toast.LENGTH_SHORT).show();
                 } else {
-                    finish();
-                    Intent switchActivityIntent = new Intent(getBaseContext(), Interests.class);
-                    ArrayList signUpDetails = new ArrayList<String>();
+                    ArrayList<String> signUpDetails = new ArrayList<String>();
                     signUpDetails.add(fullNameInputLayout.getText().toString());
                     signUpDetails.add(emailInputLayout.getText().toString());
                     signUpDetails.add(passwordInputLayout.getText().toString());
-                    switchActivityIntent.putExtra("SIGN_UP_DETAILS", signUpDetails);
+
+                    finish();
+                    Intent switchActivityIntent = new Intent(getBaseContext(), Interests.class);
+                    switchActivityIntent.putExtra("SIGN_UP_DETAILS", signUpDetails.toArray(new String[0]));
                     startActivity(switchActivityIntent);
                     overridePendingTransition(0, 0);
                 }
