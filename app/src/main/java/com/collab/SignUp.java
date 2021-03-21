@@ -71,7 +71,7 @@ public class SignUp extends AppCompatActivity {
 
                 if (focusedView != null) {
                     inputMethodManager.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
-                    view.requestFocusFromTouch();
+                    focusedView.clearFocus();
                 }
             }
         });

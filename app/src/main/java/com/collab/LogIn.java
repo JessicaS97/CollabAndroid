@@ -61,7 +61,7 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener {
 
                 if (focusedView != null) {
                     inputMethodManager.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
-                    view.requestFocusFromTouch();
+                    focusedView.clearFocus();
                 }
             }
         });
