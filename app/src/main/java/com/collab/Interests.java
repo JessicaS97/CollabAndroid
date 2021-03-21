@@ -48,7 +48,7 @@ public class Interests extends AppCompatActivity {
         String [] stringArray = intent.getExtras().getStringArray("SIGN_UP_DETAILS");
 
         rootNode = FirebaseDatabase.getInstance();
-        reference = rootNode.getReference("users");
+        reference = rootNode.getReference().child("users");
 
         String fullName = stringArray[0];
         String email = stringArray[1];
@@ -58,7 +58,7 @@ public class Interests extends AppCompatActivity {
 
         UserHelperClass helperClass = new UserHelperClass(fullName, email, password, interests);
 
-        reference.child(fullName).setValue(helperClass);
+        reference.push().setValue(helperClass);
 
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
