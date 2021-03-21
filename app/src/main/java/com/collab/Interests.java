@@ -54,11 +54,11 @@ public class Interests extends AppCompatActivity {
         String email = stringArray[1];
         String password = stringArray[2];
         ArrayList<String> interests = getAllInterests();
-        Toast.makeText(getApplicationContext(),interests.get(0), Toast.LENGTH_LONG).show();
 
         UserHelperClass helperClass = new UserHelperClass(fullName, email, password, interests);
 
-        reference.setValue("test");
+        String strParentKey = reference.push().getKey();
+        reference.child(strParentKey).setValue(helperClass);
 
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
