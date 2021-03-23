@@ -30,7 +30,7 @@
 
     <TextView
         android:id="@+id/title_initialScreen"
-        android:layout_width="264dp"
+        android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:layout_marginTop="455dp"
         android:fontFamily="@font/jaldi_bold"

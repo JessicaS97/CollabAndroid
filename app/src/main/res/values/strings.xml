@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Collab</string>
-    <string name="title_welcome">Welcome to Collab</string>
+    <string name="app_name">Gotchu</string>
+    <string name="title_welcome">Welcome to Gotchu</string>
     <string name="subtitle_initialScreen">Find the right people for any occasion</string>
     <string name="logIn">Log In</string>
     <string name="interests">Interests</string>
