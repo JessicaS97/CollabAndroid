@@ -16,7 +16,7 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_group_details);
 
-        Spinner groupSizeSpinner = findViewById(R.id.dropdownGroupSize);
+        Spinner groupSizeSpinner = (Spinner) findViewById(R.id.groupSizeSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.group_sizes, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         groupSizeSpinner.setAdapter(adapter);

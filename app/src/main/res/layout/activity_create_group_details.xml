@@ -8,70 +8,14 @@
     android:background="@color/white"
     tools:context=".CreateGroupDetails">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/background_small_layers" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="27dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="25dp"
-        android:clickable="true"
-        android:duplicateParentState="true"
-        android:onClick="goBackToCreateGroupCategoryScreen"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back_black_icon" />
-
-    <LinearLayout
-        android:id="@+id/containerGoToInterest"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/interestsText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/jaldi"
-            android:text="@string/finish"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <ImageView
-            android:layout_width="22dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="38dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/forward_icon" />
-
-    </LinearLayout>
-
     <TextView
         android:id="@+id/signUpTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="52dp"
         android:fontFamily="@font/jaldi"
-        android:text="@string/complete_the_details_below"
         android:lineHeight="25dp"
+        android:text="@string/complete_the_details_below"
         android:textColor="#000000"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,24 +23,37 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/fullNameTitle"
+        android:id="@+id/signUpEmailTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/jaldi"
-        android:text="@string/name_of_group"
+        android:text="@string/group_size"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/signUpFullNameInputLayout" />
+
+    <Spinner
+        android:id="@+id/groupSizeSpinner"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/layout_corners_shape"
+        android:spin
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpEmailTitle" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/signUpFullNameInputLayout"
         android:layout_width="331dp"
         android:layout_height="52dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:background="#F5F5F5"
         android:fontFamily="@font/jaldi"
         android:paddingLeft="10dp"
@@ -104,6 +61,7 @@
         android:textColor="#000000"
         android:textColorHint="#6C6C6C"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullNameTitle">
 
@@ -118,28 +76,18 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/signUpEmailTitle"
+        android:id="@+id/fullNameTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/jaldi"
-        android:text="@string/group_size"
+        android:text="@string/name_of_group"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpFullNameInputLayout" />
-
-    <Spinner
-        android:id="@+id/dropdownGroupSize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:padding="25dp"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpEmailTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/signUpTitle" />
 
     <TextView
         android:id="@+id/textView6"
