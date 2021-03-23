@@ -8,6 +8,67 @@
     android:background="@color/white"
     tools:context=".CreateGroupDetails">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="332dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="8dp"
+        android:background="#F5F5F5"
+        android:fontFamily="@font/jaldi"
+        android:paddingLeft="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#6C6C6C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/jaldi"
+            android:inputType="text"
+            android:textColor="#000000" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/jaldi"
+        android:text="Describe your group"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/groupSizeSpinner" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="332dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="8dp"
+        android:background="#F5F5F5"
+        android:fontFamily="@font/jaldi"
+        android:paddingLeft="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#6C6C6C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/jaldi"
+            android:inputType="text"
+            android:textColor="#000000" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
         android:id="@+id/signUpTitle"
         android:layout_width="wrap_content"
@@ -17,7 +78,7 @@
         android:lineHeight="25dp"
         android:text="@string/complete_the_details_below"
         android:textColor="#000000"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,19 +93,19 @@
         android:fontFamily="@font/jaldi"
         android:text="@string/group_size"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpFullNameInputLayout" />
 
     <Spinner
         android:id="@+id/groupSizeSpinner"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
+        android:layout_width="169dp"
+        android:layout_height="40dp"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/layout_corners_shape"
-        android:spin
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_shape_purple"
+        android:spinnerMode="dropdown"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpEmailTitle" />
@@ -60,7 +121,8 @@
         android:singleLine="true"
         android:textColor="#000000"
         android:textColorHint="#6C6C6C"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf
+            ="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullNameTitle">
@@ -85,7 +147,7 @@
         android:fontFamily="@font/jaldi"
         android:text="@string/name_of_group"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpTitle" />
 
@@ -102,6 +164,20 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/jaldi"
+        android:text="Who should join"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
