@@ -91,15 +91,13 @@
 
     <Spinner
         android:id="@+id/groupSizeSpinner"
-        android:layout_width="331dp"
-        android:layout_height="40dp"
+        android:layout_width="172dp"
+        android:layout_height="52dp"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/rounded_shape_light_grey"
-        android:dropDownSelector="@drawable/drop_down_icon"
-        android:foregroundTint="@color/grey"
-        android:theme="@style/spinnerTheme"
+        android:background="@drawable/spinner_theme_style"
+        android:textColor="@color/black"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpEmailTitle" />
