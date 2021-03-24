@@ -54,7 +54,7 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
-                ((TextView) parent.getChildAt(0)).setTextSize((float)18);
+                ((TextView) parent.getChildAt(0)).setTextSize((float)15);
             }
 
             @Override
