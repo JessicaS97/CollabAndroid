@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -17,9 +18,9 @@ import com.google.android.material.textfield.TextInputLayout;
 public class CreateGroupDetails extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     TextInputLayout groupNameLayout;
+    EditText groupDescriptionText;
     TextInputLayout groupSizeDropDown;
-    TextInputLayout groupDescriptionLayout;
-    TextInputLayout groupUserFitLayout;
+    EditText groupUserFitText;
 
     ConstraintLayout groupDetailsLayout;
 
@@ -29,6 +30,8 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
         setContentView(R.layout.activity_create_group_details);
 
         TextInputLayout groupNameLayout = (TextInputLayout) findViewById(R.id.signUpFullNameInputLayout);
+        EditText groupDescriptionText = (EditText) findViewById(R.id.groupDescriptionText);
+        EditText groupUserFitText = (EditText) findViewById(R.id.userFitText);
         ConstraintLayout groupsDetailsLayout = findViewById(R.id.createGroupDetailsLayout);
 
         Spinner groupSizeSpinner = (Spinner) findViewById(R.id.groupSizeSpinner);
@@ -63,7 +66,7 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
         overridePendingTransition(0, 0);
     }
 
-    public void createGroup() {
+    public void createGroup(View view) {
         validateFields();
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), GroupsMenu.class);
@@ -73,8 +76,20 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
 
     public void validateFields() {
         if (groupNameLayout.getEditText().getText().toString().isEmpty()) {
-            groupNameLayout.setError("Email address is required");
+            groupNameLayout.setError("Group name is required");
             groupNameLayout.requestFocus();
+            return;
+        }
+
+        if (groupDescriptionText.getText().toString().isEmpty()) {
+            groupDescriptionText.setError("Group description is required");
+            groupDescriptionText.requestFocus();
+            return;
+        }
+
+        if (groupUserFitText.getText().toString().isEmpty()) {
+            groupUserFitText.setError("Members fit description is required");
+            groupUserFitText.requestFocus();
             return;
         }
     }
