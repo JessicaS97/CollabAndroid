@@ -9,12 +9,21 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 public class CreateGroupDetails extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    TextInputLayout groupNameLayout;
+    TextInputLayout groupSizeDropDown;
+    TextInputLayout groupDescriptionLayout;
+    TextInputLayout groupUserFitLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_group_details);
+
+        TextInputLayout groupNameLayout = (TextInputLayout) findViewById(R.id.signUpFullNameInputLayout);
 
         Spinner groupSizeSpinner = (Spinner) findViewById(R.id.groupSizeSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.group_sizes, android.R.layout.simple_spinner_item);
@@ -41,9 +50,19 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
     }
 
     public void createGroup() {
+        validateFields();
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), GroupsMenu.class);
         startActivity(switchActivityIntent);
         overridePendingTransition(0, 0);
+    }
+
+    public void validateFields() {
+        if (groupNameLayout.getEditText().getText().toString().isEmpty()) {
+            groupNameLayout.setError("Email address is required");
+            groupNameLayout.requestFocus();
+            return;
+        }
+
     }
 }
