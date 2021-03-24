@@ -31,7 +31,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LogIn extends AppCompatActivity implements View.OnKeyListener {
+public class LogIn extends AppCompatActivity {
 
     TextInputEditText emailInputLayout;
     TextInputEditText passwordInputLayout;
@@ -56,55 +56,33 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener {
 
             @Override
             public void onClick(View view) {
-                InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-                View focusedView = getCurrentFocus();
-
-                if (focusedView != null) {
-                    inputMethodManager.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
-                    focusedView.clearFocus();
-                }
+                clearFocus();
             }
         });
 
         logInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (emailInputLayout.getText().toString().isEmpty()) {
-                    emailInputLayout.setError("Email address is required");
-                    emailInputLayout.requestFocus();
-                    return;
-                }
+                validateFieldsAndSignIn();
+            }
+        });
 
-                if (passwordInputLayout.getText().toString().isEmpty()) {
-                    passwordInputLayout.setError("Password is required");
-                    passwordInputLayout.requestFocus();
-                    return;
+        passwordInputLayout.setOnKeyListener(new View.OnKeyListener()
+        {
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
+                if (event.getAction() == KeyEvent.ACTION_DOWN)
+                {
+                    switch (keyCode)
+                    {
+                        case KeyEvent.KEYCODE_ENTER:
+                            validateFieldsAndSignIn();
+                    }
                 }
-
-                mAuth.signInWithEmailAndPassword(emailInputLayout.getText().toString(), passwordInputLayout.getText().toString())
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    finish();
-                                    Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
-                                    startActivity(switchActivityIntent);
-                                } else {
-                                    Toast.makeText(getApplicationContext(),"Failed to log in", Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
+                return false;
             }
         });
     };
-
-    @Override
-    public boolean onKey(View v, int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
-        // Go to main screen app
-        }
-        return false;
-    }
 
     public void goBackToMainScreen(View view) {
         finish();
@@ -124,6 +102,48 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener {
         Intent switchActivityIntent = new Intent(getBaseContext(), ForgotPassword.class);
         startActivity(switchActivityIntent);
         overridePendingTransition(0, 0);
+    }
+
+    public void validateFieldsAndSignIn() {
+        if (emailInputLayout.getText().toString().isEmpty()) {
+            emailInputLayout.setError("Email address is required");
+            emailInputLayout.requestFocus();
+            return;
+        }
+
+        if (passwordInputLayout.getText().toString().isEmpty()) {
+            passwordInputLayout.setError("Password is required");
+            passwordInputLayout.requestFocus();
+            return;
+        }
+
+        signInUser();
+    }
+
+    public void signInUser() {
+        mAuth.signInWithEmailAndPassword(emailInputLayout.getText().toString(), passwordInputLayout.getText().toString())
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            finish();
+                            Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
+                            startActivity(switchActivityIntent);
+                        } else {
+                            Toast.makeText(getApplicationContext(),"Failed to log in", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+    }
+
+    public void clearFocus() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        View focusedView = getCurrentFocus();
+
+        if (focusedView != null) {
+            inputMethodManager.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
+            focusedView.clearFocus();
+        }
     }
 
 }

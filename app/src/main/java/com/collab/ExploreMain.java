@@ -25,13 +25,7 @@ public class ExploreMain extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-                View focusedView = getCurrentFocus();
-
-                if (focusedView != null) {
-                    inputMethodManager.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
-                    view.requestFocusFromTouch();
-                }
+                clearFocus(view);
             }
         });
     }
@@ -65,5 +59,15 @@ public class ExploreMain extends AppCompatActivity {
         Intent switchActivityIntent = new Intent(getBaseContext(), MoreMenu.class);
         startActivity(switchActivityIntent);
         overridePendingTransition(0, 0);
+    }
+
+    public void clearFocus(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        View focusedView = getCurrentFocus();
+
+        if (focusedView != null) {
+            inputMethodManager.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
+            view.requestFocusFromTouch();
+        }
     }
 }

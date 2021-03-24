@@ -39,4 +39,11 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
         startActivity(switchActivityIntent);
         overridePendingTransition(0, 0);
     }
+
+    public void createGroup() {
+        finish();
+        Intent switchActivityIntent = new Intent(getBaseContext(), GroupsMenu.class);
+        startActivity(switchActivityIntent);
+        overridePendingTransition(0, 0);
+    }
 }
