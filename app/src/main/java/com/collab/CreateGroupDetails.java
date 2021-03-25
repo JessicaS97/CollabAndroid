@@ -150,4 +150,11 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
             focusedView.clearFocus();
         }
     }
+
+    public void goBackToGroupsMenu(View view) {
+        finish();
+        Intent switchActivityIntent = new Intent(getBaseContext(), GroupsMenu.class);
+        startActivity(switchActivityIntent);
+        overridePendingTransition(0, 0);
+    }
 }
