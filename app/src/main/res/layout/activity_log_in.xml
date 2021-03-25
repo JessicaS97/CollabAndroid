@@ -101,7 +101,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/jaldi"
             android:inputType="textEmailAddress"
-            android:textColor="#000000" />
+            android:textColor="#696969" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -129,7 +129,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/jaldi"
             android:inputType="textPassword"
-            android:textColor="#000000" />
+            android:textColor="#696969" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

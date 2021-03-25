@@ -20,6 +20,9 @@ public class CreateGroupCategory extends AppCompatActivity {
     public void goToCreateGroupDetails(View view) {
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), CreateGroupDetails.class);
+        if (selectedCategory != null) {
+            switchActivityIntent.putExtra("Category", selectedCategory.getText().toString());
+        }
         startActivity(switchActivityIntent);
         overridePendingTransition(0, 0);
     }

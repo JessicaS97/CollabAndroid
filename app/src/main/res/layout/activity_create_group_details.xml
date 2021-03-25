@@ -17,7 +17,7 @@
         android:layout_marginTop="12dp"
         android:fontFamily="@font/jaldi"
         android:text="Describe your group"
-        android:textColor="#000000"
+        android:textColor="#696969"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/groupSizeSpinner" />
@@ -84,17 +84,17 @@
         android:layout_marginTop="12dp"
         android:fontFamily="@font/jaldi"
         android:text="@string/group_size"
-        android:textColor="#000000"
-        android:textSize="16sp"
+        android:textColor="#696969"
+        android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpFullNameInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/groupNameInputLayout" />
 
     <Spinner
         android:id="@+id/groupSizeSpinner"
         android:layout_width="220dp"
         android:layout_height="52dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/spinner_theme_style"
         android:textColor="#696969"
@@ -103,7 +103,7 @@
         app:layout_constraintTop_toBottomOf="@+id/signUpEmailTitle" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/signUpFullNameInputLayout"
+        android:id="@+id/groupNameInputLayout"
         android:layout_width="331dp"
         android:layout_height="52dp"
         android:layout_marginTop="8dp"
@@ -138,7 +138,7 @@
         android:fontFamily="@font/jaldi"
         android:text="@string/name_of_group"
         android:textColor="#696969"
-        android:textSize="16sp"
+        android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpTitle" />
 
@@ -165,8 +165,8 @@
         android:layout_marginTop="12dp"
         android:fontFamily="@font/jaldi"
         android:text="Who should join"
-        android:textColor="#000000"
-        android:textSize="16sp"
+        android:textColor="#696969"
+        android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/groupDescriptionText" />
 

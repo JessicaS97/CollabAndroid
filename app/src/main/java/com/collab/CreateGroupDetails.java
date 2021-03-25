@@ -1,5 +1,6 @@
 package com.collab;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -14,8 +15,15 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CreateGroupDetails extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -23,6 +31,8 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
     EditText groupDescriptionText;
     Spinner groupSizeSpinner;
     EditText groupUserFitText;
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
     ConstraintLayout groupDetailsLayout;
 
@@ -31,11 +41,11 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_group_details);
 
-        TextInputLayout groupNameLayout = (TextInputLayout) findViewById(R.id.signUpFullNameInputLayout);
-        EditText groupDescriptionText = (EditText) findViewById(R.id.groupDescriptionText);
-        EditText groupUserFitText = (EditText) findViewById(R.id.userFitText);
+        groupNameLayout = (TextInputLayout) findViewById(R.id.groupNameInputLayout);
+        groupDescriptionText = (EditText) findViewById(R.id.groupDescriptionText);
+        groupUserFitText = (EditText) findViewById(R.id.userFitText);
         ConstraintLayout groupsDetailsLayout = (ConstraintLayout) findViewById(R.id.createGroupDetailsLayout);
-        Spinner groupSizeSpinner = (Spinner) findViewById(R.id.groupSizeSpinner);
+        groupSizeSpinner = (Spinner) findViewById(R.id.groupSizeSpinner);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.group_sizes, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -53,7 +63,7 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
         groupSizeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("696969"));
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("#696969"));
                 ((TextView) parent.getChildAt(0)).setTextSize((float)15);
             }
 
@@ -82,6 +92,29 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
 
     public void createGroup(View view) {
         validateFields();
+        rootNode = FirebaseDatabase.getInstance();
+        reference = rootNode.getReference("groups");
+
+        String groupName = groupNameLayout.getEditText().getText().toString();
+        String groupSize = groupSizeSpinner.getSelectedItem().toString();
+        String groupDescription = groupDescriptionText.getText().toString();
+        String groupProfileFit = groupUserFitText.getText().toString();
+        String groupCategory = getIntent().getStringExtra("Category");
+        String groupAuthor = FirebaseAuth.getInstance().getCurrentUser().getUid();;
+
+        Group group = new Group(groupName, groupSize, groupDescription, groupProfileFit, groupCategory, groupAuthor);
+        String strParentKey = reference.push().getKey();
+        reference.child(strParentKey).setValue(group).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(),"Group has been created successfully", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(),"Failed to create group! Try again", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), GroupsMenu.class);
         startActivity(switchActivityIntent);
@@ -101,8 +134,8 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
             return;
         }
 
-        if (groupUserFitText.getText().toString().isEmpty()) {
-            groupUserFitText.setError("Members fit description is required");
+        if (groupUserFitText.getEditableText().toString().isEmpty()) {
+            groupUserFitText.setError("Who should join field is required");
             groupUserFitText.requestFocus();
             return;
         }

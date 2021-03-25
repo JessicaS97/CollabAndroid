@@ -9,10 +9,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 
 public class ExploreMain extends AppCompatActivity {
 
     ConstraintLayout exploreMenuLayout;
+    LinearLayout searchFilterExplore;
+    EditText editTextTextPersonName2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +24,22 @@ public class ExploreMain extends AppCompatActivity {
         setContentView(R.layout.activity_explore_main);
 
         exploreMenuLayout = (ConstraintLayout) findViewById(R.id.exploreMainLayout);
+        searchFilterExplore = (LinearLayout) findViewById(R.id.searchFilterExplore);
+        editTextTextPersonName2 = (EditText) findViewById(R.id.editTextTextPersonName2);
 
         exploreMenuLayout.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 clearFocus(view);
+            }
+        });
+
+        searchFilterExplore.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                editTextTextPersonName2.setText("");
             }
         });
     }
@@ -67,7 +81,7 @@ public class ExploreMain extends AppCompatActivity {
 
         if (focusedView != null) {
             inputMethodManager.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
-            view.requestFocusFromTouch();
+            focusedView.clearFocus();
         }
     }
 }
