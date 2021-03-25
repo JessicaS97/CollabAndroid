@@ -8,6 +8,19 @@
     tools:context=".ProfileSetUp">
 
     <ImageView
+        android:layout_width="30dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:clickable="true"
+        android:duplicateParentState="true"
+        android:onClick="goBackToExplore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/close_icon" />
+
+    <ImageView
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,6 +75,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_finishSetUp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_shape_dark_purple"
+        android:fontFamily="@font/jaldi_bold"
+        android:onClick="finishProfileSetup"
+        android:text="Done"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutMeText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
