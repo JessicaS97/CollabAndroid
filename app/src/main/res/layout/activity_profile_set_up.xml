@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ProfileSetUp">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/empty_user_profile_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/genderSpinner"
+        android:layout_width="162dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/spinner_theme_style"
+        android:textColor="#696969"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <Spinner
+        android:id="@+id/dobSpinner"
+        android:layout_width="162dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/spinner_theme_style"
+        android:textColor="#696969"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <EditText
+        android:id="@+id/aboutMeText"
+        android:layout_width="331dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/rounded_text_layout"
+        android:fontFamily="@font/jaldi"
+        android:gravity="top|left"
+        android:hint="About me"
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:maxLines="8"
+        android:minLines="4"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:scrollbars="vertical"
+        android:textColor="#696969"
+        android:textColorHint="#696969"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
