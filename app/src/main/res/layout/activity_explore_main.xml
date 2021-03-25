@@ -44,7 +44,7 @@
         android:fontFamily="@font/jaldi_bold"
         android:text="@string/categories"
         android:textAllCaps="false"
-        android:textColor="#000000"
+        android:textColor="#696969"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />

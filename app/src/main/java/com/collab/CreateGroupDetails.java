@@ -53,7 +53,7 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
         groupSizeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("696969"));
                 ((TextView) parent.getChildAt(0)).setTextSize((float)15);
             }
 
