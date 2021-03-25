@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class CreateGroupCategory extends AppCompatActivity {
 
@@ -20,9 +21,11 @@ public class CreateGroupCategory extends AppCompatActivity {
     public void goToCreateGroupDetails(View view) {
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), CreateGroupDetails.class);
-        if (selectedCategory != null) {
-            switchActivityIntent.putExtra("Category", selectedCategory.getText().toString());
+        if (selectedCategory == null) {
+            Toast.makeText(getApplicationContext(),"Please choose a category", Toast.LENGTH_LONG).show();
+            return;
         }
+        switchActivityIntent.putExtra("Category", selectedCategory.getText().toString());
         startActivity(switchActivityIntent);
         overridePendingTransition(0, 0);
     }

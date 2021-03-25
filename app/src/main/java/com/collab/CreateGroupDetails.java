@@ -100,7 +100,7 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
         String groupDescription = groupDescriptionText.getText().toString();
         String groupProfileFit = groupUserFitText.getText().toString();
         String groupCategory = getIntent().getStringExtra("Category");
-        String groupAuthor = FirebaseAuth.getInstance().getCurrentUser().getUid();;
+        String groupAuthor = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         Group group = new Group(groupName, groupSize, groupDescription, groupProfileFit, groupCategory, groupAuthor);
         String strParentKey = reference.push().getKey();

@@ -69,8 +69,8 @@ public class Interests extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             UserHelperClass helperClass = new UserHelperClass(fullName, email, password, interests);
-                            String strParentKey = reference.push().getKey();
-                            reference.child(strParentKey).setValue(helperClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            reference.child(userId).setValue(helperClass).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
