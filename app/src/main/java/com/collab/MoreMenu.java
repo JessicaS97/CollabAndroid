@@ -23,6 +23,13 @@ public class MoreMenu extends AppCompatActivity {
         overridePendingTransition(0, 0);
     }
 
+    public void goToEditProfile(View view) {
+        finish();
+        Intent switchActivityIntent = new Intent(getBaseContext(), GroupsMenu.class);
+        startActivity(switchActivityIntent);
+        overridePendingTransition(0, 0);
+    }
+
     public void goToMessagesMenu(View view) {
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), MessagesMenu.class);
