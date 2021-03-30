@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
@@ -30,11 +31,12 @@ import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
 import java.util.UUID;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import io.grpc.Context;
 
 public class ProfileSetUp extends AppCompatActivity {
 
-    private ImageView profilePic;
+    private CircleImageView profilePic;
     public Uri imageUri;
     private FirebaseStorage storage;
     private StorageReference storageReference;
@@ -49,6 +51,13 @@ public class ProfileSetUp extends AppCompatActivity {
 
         profilePic = findViewById(R.id.profilePic);
         storage = FirebaseStorage.getInstance();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user.getPhotoUrl() != null) {
+            Glide.with(this)
+                    .load(user.getPhotoUrl())
+                    .into(profilePic);
+        }
 
         profilePic.setOnClickListener(new View.OnClickListener() {
 
