@@ -25,7 +25,7 @@ public class MoreMenu extends AppCompatActivity {
 
     public void goToEditProfile(View view) {
         finish();
-        Intent switchActivityIntent = new Intent(getBaseContext(), GroupsMenu.class);
+        Intent switchActivityIntent = new Intent(getBaseContext(), ProfileSetUp.class);
         startActivity(switchActivityIntent);
         overridePendingTransition(0, 0);
     }
