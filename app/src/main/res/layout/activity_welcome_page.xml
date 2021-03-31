@@ -8,11 +8,10 @@
     tools:context=".WelcomePage">
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/welcomeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
-        android:text="Welcome"
         android:textColor="#491D7F"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"

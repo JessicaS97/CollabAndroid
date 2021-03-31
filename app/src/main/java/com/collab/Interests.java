@@ -88,6 +88,7 @@ public class Interests extends AppCompatActivity {
 
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), WelcomePage.class);
+        switchActivityIntent.putExtra("USER_NAME", fullName);
         startActivity(switchActivityIntent);
     }
 
