@@ -3,17 +3,24 @@ package com.collab;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,13 +48,16 @@ import java.util.UUID;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.grpc.Context;
 
-public class ProfileSetUp extends AppCompatActivity {
+public class ProfileSetUp extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    Spinner genderSpinner;
+    Spinner dobSpinner;
     private CircleImageView profilePic;
     public Uri imageUri;
     private FirebaseStorage storage;
     private StorageReference storageReference;
     TextView userNameProfile;
+    ConstraintLayout profileSetUp;
 
     String profileImageUrl = null;
     int TAKE_IMAGE_CODE = 10001;
@@ -60,6 +70,9 @@ public class ProfileSetUp extends AppCompatActivity {
         profilePic = findViewById(R.id.profilePic);
         storage = FirebaseStorage.getInstance();
         userNameProfile = findViewById(R.id.userNameProfile);
+        genderSpinner = findViewById(R.id.genderSpinner);
+        dobSpinner = findViewById(R.id.dobSpinner);
+        profileSetUp = findViewById(R.id.profileSetUp);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String userId = user.getUid();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users");
@@ -90,6 +103,40 @@ public class ProfileSetUp extends AppCompatActivity {
                 choosePicture();
             }
         });
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.gender, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        genderSpinner.setAdapter(adapter);
+        genderSpinner.setOnItemSelectedListener(this);
+
+        profileSetUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clearFocus();
+            }
+        });
+
+        genderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("#696969"));
+                ((TextView) parent.getChildAt(0)).setTextSize((float)15);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    }
+
+    public void clearFocus() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        View focusedView = getCurrentFocus();
+
+        if (focusedView != null) {
+            inputMethodManager.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
+            focusedView.clearFocus();
+        }
     }
 
     public void goBackToExplore(View view) {
@@ -190,4 +237,13 @@ public class ProfileSetUp extends AppCompatActivity {
                 });
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

@@ -26,4 +26,9 @@
         <item>Medium (4–6 members)</item>
         <item>Big (6+ members)</item>
     </string-array>
+    <string-array name="gender">
+        <item>Female</item>
+        <item>Male</item>
+        <item>Other</item>
+    </string-array>
 </resources>
