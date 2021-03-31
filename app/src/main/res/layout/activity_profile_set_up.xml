@@ -48,13 +48,11 @@
         android:id="@+id/dobSpinner"
         android:layout_width="162dp"
         android:layout_height="52dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/spinner_theme_style"
         android:textColor="#696969"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePic" />
+        app:layout_constraintTop_toBottomOf="@+id/genderSpinner"
+        tools:layout_editor_absoluteX="40dp" />
 
     <EditText
         android:id="@+id/aboutMeText"

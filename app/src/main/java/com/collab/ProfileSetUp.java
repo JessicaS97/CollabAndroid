@@ -63,7 +63,7 @@ public class ProfileSetUp extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                handleImageClick(v);
+                choosePicture();
             }
         });
     }
@@ -92,10 +92,10 @@ public class ProfileSetUp extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == TAKE_IMAGE_CODE && resultCode == RESULT_OK) {
-            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-            profilePic.setImageBitmap(bitmap);
-            handleUpload(bitmap);
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            imageUri = data.getData();
+            profilePic.setImageURI(imageUri);
+            uploadPicture();
         }
     }
 
@@ -104,14 +104,17 @@ public class ProfileSetUp extends AppCompatActivity {
         progressDialog.setTitle("Uploading Image...");
         progressDialog.show();
 
-        final String randomKey = UUID.randomUUID().toString();
-        StorageReference ref = storageReference.child("images/" + randomKey);
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        storageReference = FirebaseStorage.getInstance().getReference()
+                .child("profileImages")
+                .child(uid + ".jpeg");
 
-        ref.putFile(imageUri)
+        storageReference.putFile(imageUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         progressDialog.dismiss();
+                        getDownloadUrl(storageReference);
                         Snackbar.make(findViewById(R.id.profileSetUp), "Image Uploaded", Snackbar.LENGTH_LONG).show();
                     }
                 })
@@ -127,36 +130,6 @@ public class ProfileSetUp extends AppCompatActivity {
                     public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
                         double progressPercent = (100.00 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
                         progressDialog.setMessage("Progress: " + (int) progressPercent + "%");
-                    }
-                });
-    }
-
-    public void handleImageClick(View view) {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(intent, TAKE_IMAGE_CODE);
-        }
-    }
-
-    private void handleUpload(Bitmap bitmap) {
-        ByteArrayOutputStream byteArrayOutput = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutput);
-
-        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        storageReference = FirebaseStorage.getInstance().getReference()
-                .child("profileImages")
-                .child(uid + ".jpeg");
-
-        storageReference.putBytes(byteArrayOutput.toByteArray())
-                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        getDownloadUrl(storageReference);
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
                     }
                 });
     }
