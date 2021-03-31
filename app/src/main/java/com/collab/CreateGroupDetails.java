@@ -75,7 +75,6 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String groupSizeSelected = parent.getItemAtPosition(position).toString();
     }
 
     @Override

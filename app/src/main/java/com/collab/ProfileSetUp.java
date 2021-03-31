@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.nfc.Tag;
 import android.os.Bundle;
@@ -19,6 +21,9 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -43,6 +48,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Calendar;
 import java.util.UUID;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -50,17 +56,15 @@ import io.grpc.Context;
 
 public class ProfileSetUp extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    DatePickerDialog.OnDateSetListener mDateSetListener;
     Spinner genderSpinner;
-    Spinner dobSpinner;
+    Button dobSpinner;
     private CircleImageView profilePic;
     public Uri imageUri;
     private FirebaseStorage storage;
     private StorageReference storageReference;
     TextView userNameProfile;
     ConstraintLayout profileSetUp;
-
-    String profileImageUrl = null;
-    int TAKE_IMAGE_CODE = 10001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,13 +124,44 @@ public class ProfileSetUp extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("#696969"));
-                ((TextView) parent.getChildAt(0)).setTextSize((float)15);
+                ((TextView) parent.getChildAt(0)).setTextSize((float)16);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+        dobSpinner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                Log.i("DOB", "Pressed");
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        ProfileSetUp.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateSetListener,
+                        year, month, day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month + 1;
+                String date = month + "/" + dayOfMonth + "/" + year;
+                dobSpinner.setText(date);
+                Log.i("DOB", date);
+
+            }
+        };
     }
 
     public void clearFocus() {

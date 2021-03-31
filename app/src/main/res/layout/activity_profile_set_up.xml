@@ -41,11 +41,10 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/spinner_theme_style"
         android:textColor="#696969"
-        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userNameProfile" />
 
-    <Spinner
+    <Button
         android:id="@+id/dobSpinner"
         android:layout_width="220dp"
         android:layout_height="52dp"
@@ -53,17 +52,19 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/spinner_theme_style"
+        android:fontFamily="@font/jaldi"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="10dp"
+        android:stateListAnimator="@null"
         android:textColor="#696969"
-        android:visibility="visible"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/genderSpinner" />
 
     <EditText
         android:id="@+id/aboutMeText"
-        android:layout_width="331dp"
+        android:layout_width="321dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_text_layout"
         android:fontFamily="@font/jaldi"
@@ -78,6 +79,7 @@
         android:scrollbars="vertical"
         android:textColor="#696969"
         android:textColorHint="#696969"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dobSpinner" />
 
@@ -102,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/jaldi_bold"
+        android:fontFamily="@font/jaldi"
         android:textColor="@color/black"
         android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"
