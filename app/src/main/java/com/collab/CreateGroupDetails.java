@@ -34,8 +34,6 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
-    ConstraintLayout groupDetailsLayout;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +88,24 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
     }
 
     public void createGroup(View view) {
-        validateFields();
+        if (groupNameLayout.getEditText().getText().toString().isEmpty()) {
+            groupNameLayout.setError("Group name is required");
+            groupNameLayout.requestFocus();
+            return;
+        }
+
+        if (groupDescriptionText.getText().toString().isEmpty()) {
+            groupDescriptionText.setError("Group description is required");
+            groupDescriptionText.requestFocus();
+            return;
+        }
+
+        if (groupUserFitText.getEditableText().toString().isEmpty()) {
+            groupUserFitText.setError("Who should join field is required");
+            groupUserFitText.requestFocus();
+            return;
+        }
+
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("groups");
 
@@ -118,26 +133,6 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
         Intent switchActivityIntent = new Intent(getBaseContext(), GroupsMenu.class);
         startActivity(switchActivityIntent);
         overridePendingTransition(0, 0);
-    }
-
-    public void validateFields() {
-        if (groupNameLayout.getEditText().getText().toString().isEmpty()) {
-            groupNameLayout.setError("Group name is required");
-            groupNameLayout.requestFocus();
-            return;
-        }
-
-        if (groupDescriptionText.getText().toString().isEmpty()) {
-            groupDescriptionText.setError("Group description is required");
-            groupDescriptionText.requestFocus();
-            return;
-        }
-
-        if (groupUserFitText.getEditableText().toString().isEmpty()) {
-            groupUserFitText.setError("Who should join field is required");
-            groupUserFitText.requestFocus();
-            return;
-        }
     }
 
     public void clearFocus() {
