@@ -89,7 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginBottom="32dp"
-        android:onClick="goToExploreMainPage"
+        android:onClick="goToWelcomePage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 

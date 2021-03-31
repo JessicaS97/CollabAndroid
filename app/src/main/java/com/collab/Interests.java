@@ -51,7 +51,7 @@ public class Interests extends AppCompatActivity {
         }
     }
 
-    public void goToExploreMainPage(View view) {
+    public void goToWelcomePage(View view) {
         Intent intent = getIntent();
         String [] stringArray = intent.getExtras().getStringArray("SIGN_UP_DETAILS");
 
@@ -87,7 +87,7 @@ public class Interests extends AppCompatActivity {
                 });
 
         finish();
-        Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
+        Intent switchActivityIntent = new Intent(getBaseContext(), WelcomePage.class);
         startActivity(switchActivityIntent);
     }
 
