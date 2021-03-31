@@ -169,9 +169,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
@@ -260,13 +259,14 @@
 
         <EditText
             android:id="@+id/editTextTextPersonName2"
-            android:layout_width="wrap_content"
+            android:layout_width="292dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:ems="10"
+            android:hint="@string/search_a_group_to_join"
+            android:textColorHint="@color/grey"
             android:inputType="textPersonName"
-            android:text="@string/search_a_group_to_join"
             android:textAllCaps="false"
             android:textColor="@color/grey"
             android:textSize="12sp"
@@ -277,8 +277,6 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="140dp"
-            android:layout_marginLeft="140dp"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="2dp"
             android:src="@drawable/search_icon" />
