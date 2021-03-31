@@ -25,6 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class ExploreMain extends AppCompatActivity {
 
@@ -57,7 +58,8 @@ public class ExploreMain extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                firebaseGroupSearch();
+                String searchText = editTextTextPersonName2.getText().toString();
+                firebaseGroupSearch(searchText);
             }
         });
     }
@@ -83,7 +85,9 @@ public class ExploreMain extends AppCompatActivity {
         }
     }
 
-    private void firebaseGroupSearch() {
+    private void firebaseGroupSearch(String searchText) {
+        Query firebaseSearchQuery = databaseReference.orderByChild("groupName").startAt(searchText).endAt(searchText + "\uf8ff");
+
         FirebaseRecyclerOptions<Group> options =
                 new FirebaseRecyclerOptions.Builder<Group>()
                         .setQuery(databaseReference, Group.class)
