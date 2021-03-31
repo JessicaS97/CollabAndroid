@@ -91,48 +91,41 @@ public class CreateGroupDetails extends AppCompatActivity implements AdapterView
         if (groupNameLayout.getEditText().getText().toString().isEmpty()) {
             groupNameLayout.setError("Group name is required");
             groupNameLayout.requestFocus();
-            return;
-        }
-
-        if (groupDescriptionText.getText().toString().isEmpty()) {
+        } else if (groupDescriptionText.getText().toString().isEmpty()) {
             groupDescriptionText.setError("Group description is required");
             groupDescriptionText.requestFocus();
-            return;
-        }
-
-        if (groupUserFitText.getEditableText().toString().isEmpty()) {
+        } else if (groupUserFitText.getEditableText().toString().isEmpty()) {
             groupUserFitText.setError("Who should join field is required");
             groupUserFitText.requestFocus();
-            return;
-        }
+        } else {
+            rootNode = FirebaseDatabase.getInstance();
+            reference = rootNode.getReference("groups");
 
-        rootNode = FirebaseDatabase.getInstance();
-        reference = rootNode.getReference("groups");
+            String groupName = groupNameLayout.getEditText().getText().toString();
+            String groupSize = groupSizeSpinner.getSelectedItem().toString();
+            String groupDescription = groupDescriptionText.getText().toString();
+            String groupProfileFit = groupUserFitText.getText().toString();
+            String groupCategory = getIntent().getStringExtra("Category");
+            String groupAuthor = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        String groupName = groupNameLayout.getEditText().getText().toString();
-        String groupSize = groupSizeSpinner.getSelectedItem().toString();
-        String groupDescription = groupDescriptionText.getText().toString();
-        String groupProfileFit = groupUserFitText.getText().toString();
-        String groupCategory = getIntent().getStringExtra("Category");
-        String groupAuthor = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        Group group = new Group(groupName, groupSize, groupDescription, groupProfileFit, groupCategory, groupAuthor);
-        String strParentKey = reference.push().getKey();
-        reference.child(strParentKey).setValue(group).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(),"Group has been created successfully", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),"Failed to create group! Try again", Toast.LENGTH_LONG).show();
+            Group group = new Group(groupName, groupSize, groupDescription, groupProfileFit, groupCategory, groupAuthor);
+            String strParentKey = reference.push().getKey();
+            reference.child(strParentKey).setValue(group).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(getApplicationContext(),"Group has been created successfully", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(),"Failed to create group! Try again", Toast.LENGTH_LONG).show();
+                    }
                 }
-            }
-        });
+            });
 
-        finish();
-        Intent switchActivityIntent = new Intent(getBaseContext(), GroupsMenu.class);
-        startActivity(switchActivityIntent);
-        overridePendingTransition(0, 0);
+            finish();
+            Intent switchActivityIntent = new Intent(getBaseContext(), GroupsMenu.class);
+            startActivity(switchActivityIntent);
+            overridePendingTransition(0, 0);
+        }
     }
 
     public void clearFocus() {
