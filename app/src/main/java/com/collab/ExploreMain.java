@@ -87,7 +87,7 @@ public class ExploreMain extends AppCompatActivity {
                         for (DataSnapshot ds : snapshot.getChildren()) {
                             groupList.add(ds.getValue(Group.class));
                         }
-                        AdapterClass adapterClass = new AdapterClass(groupList);
+                        AdapterClass adapterClass = new AdapterClass(getApplicationContext(), groupList);
                         groupRecycleView.setAdapter(adapterClass);
                     }
                 }
@@ -119,7 +119,7 @@ public class ExploreMain extends AppCompatActivity {
                 resultsGroupList.add(group);
             }
         }
-        AdapterClass adapterClass = new AdapterClass(resultsGroupList);
+        AdapterClass adapterClass = new AdapterClass(getApplicationContext(), groupList);
         groupRecycleView.setAdapter(adapterClass);
     }
 

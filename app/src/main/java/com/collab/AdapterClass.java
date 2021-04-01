@@ -1,5 +1,6 @@
 package com.collab;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -20,8 +23,12 @@ import javax.annotation.Nonnull;
 
 public class AdapterClass extends RecyclerView.Adapter<AdapterClass.GroupsViewHolder> {
     ArrayList<Group> groupList;
-    public AdapterClass(ArrayList<Group> groupList) {
+    StorageReference storageReference;
+    private Context context;
+
+    public AdapterClass(Context context, ArrayList<Group> groupList) {
         this.groupList = groupList;
+        this.context = context;
     }
 
     @NonNull
@@ -38,9 +45,11 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.GroupsViewHo
         holder.groupNameRetrieved.setText(groupList.get(position).getGroupName());
         holder.groupSizeRetrieved.setText(groupList.get(position).getGroupSize());
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        storageReference = FirebaseStorage.getInstance().getReference()
+                .child("profileImages")
+                .child(groupList.get(position).getGroupAuthor() + ".jpeg");
 
-        //Glide.with(this).load(user.getPhotoUrl()).into(holder.authorImage);
+        Glide.with(this.context).load(storageReference).into(holder.authorImage);
     }
 
     @Override
