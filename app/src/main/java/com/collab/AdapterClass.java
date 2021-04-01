@@ -1,18 +1,15 @@
 package com.collab;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -46,11 +43,9 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.GroupsViewHo
                 .child("profileImages")
                 .child(groupList.get(position).getGroupAuthor() + ".jpeg");
 
-        if (storageReference != null) {
-            GlideApp.with(this.context)
-                    .load(storageReference)
-                    .into(holder.authorImage);
-        }
+        GlideApp.with(this.context)
+                .load(storageReference)
+                .into(holder.authorImage);
     }
 
     @Override

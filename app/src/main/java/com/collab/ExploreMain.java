@@ -111,15 +111,19 @@ public class ExploreMain extends AppCompatActivity {
     }
 
     private void firebaseGroupSearch(String searchText) {
-        Query firebaseSearchQuery = databaseReference.orderByChild("groupName").startAt(searchText).endAt(searchText + "\uf8ff");
-        Log.i("Search", searchText);
         ArrayList<Group> resultsGroupList = new ArrayList<>();
+        AdapterClass adapterClass;
+
         for (Group group : groupList) {
             if (group.getGroupName().toLowerCase().contains(searchText.toLowerCase())) {
                 resultsGroupList.add(group);
+            } else if (searchText.isEmpty() || searchText.equals("")) {
+                Log.i("test", searchText);
+                adapterClass = new AdapterClass(getApplicationContext(), groupList);
+                groupRecycleView.setAdapter(adapterClass);
             }
         }
-        AdapterClass adapterClass = new AdapterClass(getApplicationContext(), groupList);
+        adapterClass = new AdapterClass(getApplicationContext(), resultsGroupList);
         groupRecycleView.setAdapter(adapterClass);
     }
 
