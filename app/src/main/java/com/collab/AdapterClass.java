@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,7 +46,11 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.GroupsViewHo
                 .child("profileImages")
                 .child(groupList.get(position).getGroupAuthor() + ".jpeg");
 
-        Glide.with(this.context).load(storageReference).into(holder.authorImage);
+        if (storageReference != null) {
+            GlideApp.with(this.context)
+                    .load(storageReference)
+                    .into(holder.authorImage);
+        }
     }
 
     @Override
