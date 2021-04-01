@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -95,18 +96,31 @@ public class ExploreMain extends AppCompatActivity {
                 public void onCancelled(@NonNull DatabaseError error) {
 
                 }
-            })
+            });
+        }
+
+        if (editTextTextPersonName2 != null) {
+            editTextTextPersonName2.setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event) {
+                    firebaseGroupSearch(editTextTextPersonName2.getText().toString());
+                    return true;
+                }
+            });
         }
     }
 
     private void firebaseGroupSearch(String searchText) {
         Query firebaseSearchQuery = databaseReference.orderByChild("groupName").startAt(searchText).endAt(searchText + "\uf8ff");
         Log.i("Search", searchText);
-
-        FirebaseRecyclerOptions<Group> options =
-                new FirebaseRecyclerOptions.Builder<Group>()
-                        .setQuery(firebaseSearchQuery, Group.class)
-                        .build();
+        ArrayList<Group> resultsGroupList = new ArrayList<>();
+        for (Group group : groupList) {
+            if (group.getGroupName().toLowerCase().contains(searchText.toLowerCase())) {
+                resultsGroupList.add(group);
+            }
+        }
+        AdapterClass adapterClass = new AdapterClass(resultsGroupList);
+        groupRecycleView.setAdapter(adapterClass);
     }
 
     public void categorySelected(View view) {
