@@ -25,9 +25,14 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class ExploreMain extends AppCompatActivity {
 
@@ -36,6 +41,7 @@ public class ExploreMain extends AppCompatActivity {
     EditText editTextTextPersonName2;
     DatabaseReference databaseReference;
     RecyclerView groupRecycleView;
+    ArrayList<Group> groupList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +74,30 @@ public class ExploreMain extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (databaseReference != null) {
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        groupList = new ArrayList<>();
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            groupList.add(ds.getValue(Group.class));
+                        }
+                        AdapterClass adapterClass = new AdapterClass(groupList);
+                        groupRecycleView.setAdapter(adapterClass);
+                    }
+                }
 
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            })
+        }
+    }
 
     private void firebaseGroupSearch(String searchText) {
         Query firebaseSearchQuery = databaseReference.orderByChild("groupName").startAt(searchText).endAt(searchText + "\uf8ff");

@@ -49,7 +49,6 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.GroupsViewHo
     }
 
     class GroupsViewHolder extends RecyclerView.ViewHolder {
-        View mView;
         TextView groupNameRetrieved, groupSizeRetrieved;
         ImageView authorImage;
 
