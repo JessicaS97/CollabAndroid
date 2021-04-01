@@ -145,7 +145,7 @@ public class ExploreMain extends AppCompatActivity {
         Intent switchActivityIntent = new Intent(getBaseContext(), MessagesMenu.class);
         startActivity(switchActivityIntent);
         overridePendingTransition(0, 0);
-    }
+    };
 
     public void goToMoreMenu(View view) {
         finish();

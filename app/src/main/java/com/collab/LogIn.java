@@ -130,6 +130,7 @@ public class LogIn extends AppCompatActivity {
                             Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
                             startActivity(switchActivityIntent);
                         } else {
+                            Log.e("error", task.getException().toString());
                             Toast.makeText(getApplicationContext(),"Failed to log in", Toast.LENGTH_LONG).show();
                         }
                     }

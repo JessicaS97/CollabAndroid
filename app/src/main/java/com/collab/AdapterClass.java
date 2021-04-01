@@ -12,14 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
-
-import javax.annotation.Nonnull;
 
 public class AdapterClass extends RecyclerView.Adapter<AdapterClass.GroupsViewHolder> {
     ArrayList<Group> groupList;
