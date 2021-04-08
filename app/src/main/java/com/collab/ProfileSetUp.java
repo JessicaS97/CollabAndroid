@@ -174,7 +174,7 @@ public class ProfileSetUp extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
-    public void goBackToExplore(View view) {
+    public void closeProfileSetUp(View view) {
         finish();
         Intent switchActivityIntent = new Intent(getBaseContext(), ExploreMain.class);
         startActivity(switchActivityIntent);
