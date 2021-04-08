@@ -2,6 +2,7 @@ package com.collab;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 public class MessagesMenu extends AppCompatActivity {
 
     DatabaseReference databaseReference;
-    RecyclerView groupRecycleView;
+    RecyclerView messageRecycleView;
     ArrayList<Group> messageList;
 
     private AdapterMessageChat adapter;
@@ -29,7 +30,12 @@ public class MessagesMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messages_menu);
 
+        messageRecycleView = findViewById(R.id.indivMessagesLayout);
+
         adapter = new AdapterMessageChat(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        messageRecycleView.setLayoutManager(linearLayoutManager);
+        messageRecycleView.setAdapter(adapter);
     }
 
     @Override
