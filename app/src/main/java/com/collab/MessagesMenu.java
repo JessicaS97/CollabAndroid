@@ -22,10 +22,14 @@ public class MessagesMenu extends AppCompatActivity {
     RecyclerView groupRecycleView;
     ArrayList<Group> messageList;
 
+    private AdapterMessageChat adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messages_menu);
+
+        adapter = new AdapterMessageChat(this);
     }
 
     @Override
