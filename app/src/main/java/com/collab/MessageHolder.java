@@ -21,4 +21,36 @@ public class MessageHolder extends RecyclerView.ViewHolder {
         time = itemView.findViewById(R.id.timeMessage);
         imageMessage = itemView.findViewById(R.id.profilePicMessage);
     }
+
+    public TextView getName() {
+        return name;
+    }
+
+    public void setName(TextView name) {
+        this.name = name;
+    }
+
+    public TextView getMessage() {
+        return message;
+    }
+
+    public void setMessage(TextView message) {
+        this.message = message;
+    }
+
+    public TextView getTime() {
+        return time;
+    }
+
+    public void setTime(TextView time) {
+        this.time = time;
+    }
+
+    public CircleImageView getImageMessage() {
+        return imageMessage;
+    }
+
+    public void setImageMessage(CircleImageView imageMessage) {
+        this.imageMessage = imageMessage;
+    }
 }
