@@ -36,11 +36,13 @@
         android:id="@+id/genderSpinner"
         android:layout_width="220dp"
         android:layout_height="52dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginRight="101dp"
         android:background="@drawable/spinner_theme_style"
+        android:paddingLeft="5dp"
         android:textColor="#696969"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userNameProfile" />
 
@@ -48,16 +50,17 @@
         android:id="@+id/dobSpinner"
         android:layout_width="220dp"
         android:layout_height="52dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginRight="101dp"
         android:background="@drawable/spinner_theme_style"
         android:fontFamily="@font/jaldi"
         android:gravity="left|center_vertical"
         android:paddingLeft="10dp"
         android:stateListAnimator="@null"
         android:textColor="#696969"
-        android:textSize="16sp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/genderSpinner" />
 
@@ -87,7 +90,7 @@
         android:id="@+id/button_finishSetUp"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="91dp"
         android:background="@drawable/rounded_shape_dark_purple"
         android:fontFamily="@font/jaldi_bold"
         android:onClick="finishProfileSetup"
@@ -97,7 +100,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aboutMeText" />
+        app:layout_constraintTop_toBottomOf="@+id/interestsProfile" />
 
     <TextView
         android:id="@+id/userNameProfile"
@@ -110,6 +113,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePic" />
+
+    <TextView
+        android:id="@+id/interestsProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="250dp"
+        android:layout_marginRight="250dp"
+        android:fontFamily="@font/jaldi"
+        android:text="@string/interests"
+        android:textColor="#696969"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutMeText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
