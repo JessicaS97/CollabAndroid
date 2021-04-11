@@ -58,7 +58,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/messagesRecyclerView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginTop="5dp"
@@ -73,15 +73,22 @@
 
         <EditText
             android:id="@+id/sendMessageText"
-            android:layout_width="325dp"
+            android:layout_width="300dp"
             android:layout_height="35dp"
             android:fontFamily="@font/jaldi"
             android:layout_marginLeft="15dp"
             android:hint="Type a message"
             android:textColorHint="@color/grey"
             android:textColor="@color/grey"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:background="@drawable/rounded_type_message_shape"/>
+
+        <ImageView
+            android:id="@+id/sendMessageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/attach_icon" />
 
         <ImageView
             android:id="@+id/sendMessageButton"
