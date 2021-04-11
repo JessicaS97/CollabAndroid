@@ -146,7 +146,7 @@ public class ExploreMain extends AppCompatActivity {
 
     public void goToMessagesMenu(View view) {
         finish();
-        Intent switchActivityIntent = new Intent(getBaseContext(), MessagesMenu.class);
+        Intent switchActivityIntent = new Intent(getBaseContext(), MessageChat.class);
         startActivity(switchActivityIntent);
         overridePendingTransition(0, 0);
     };

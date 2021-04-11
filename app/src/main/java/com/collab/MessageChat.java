@@ -1,7 +1,9 @@
 package com.collab;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,7 +16,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MessageChat extends AppCompatActivity {
 
     ImageView sendMessageButton;
-    TextView textMessage;
+    EditText textMessage;
     CircleImageView profilePicUser;
     TextView userName;
     RecyclerView messageRecyclerView;
@@ -47,6 +49,9 @@ public class MessageChat extends AppCompatActivity {
     }
 
     public void goBackToMessagesPage(View view) {
-
+        finish();
+        Intent switchActivityIntent = new Intent(getBaseContext(), MessagesMenu.class);
+        startActivity(switchActivityIntent);
+        overridePendingTransition(0, 0);
     }
 }
