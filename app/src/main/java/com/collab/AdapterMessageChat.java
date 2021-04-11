@@ -21,6 +21,7 @@ public class AdapterMessageChat extends RecyclerView.Adapter<MessageHolder> {
 
     public void addMessage(Message message) {
         messageList.add(message);
+        notifyItemInserted(messageList.size());
     }
 
     @NonNull
