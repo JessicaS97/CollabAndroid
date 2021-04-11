@@ -29,7 +29,7 @@ public class MessageChat extends AppCompatActivity {
         setContentView(R.layout.message_chat);
 
         profilePicUser = findViewById(R.id.profilePicMessage);
-        userName = findViewById(R.id.userNameMessage);
+        userName = findViewById(R.id.userNameMessageChat);
         textMessage = findViewById(R.id.sendMessageText);
         sendMessageButton = findViewById(R.id.sendMessageButton);
         messageRecyclerView = findViewById(R.id.messagesRecyclerView);
