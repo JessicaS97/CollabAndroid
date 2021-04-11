@@ -72,7 +72,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <TextView
+        <EditText
             android:id="@+id/sendMessageText"
             android:layout_width="337dp"
             android:layout_height="35dp"
