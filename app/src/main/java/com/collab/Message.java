@@ -2,6 +2,7 @@ package com.collab;
 
 public class Message {
     private String message;
+    private String urlPhoto;
     private String name;
     private String profilePic;
     private String message_type;
@@ -12,6 +13,15 @@ public class Message {
 
     public Message(String message, String name, String profilePic, String message_type, String time) {
         this.message = message;
+        this.name = name;
+        this.profilePic = profilePic;
+        this.message_type = message_type;
+        this.time = time;
+    }
+
+    public Message(String message, String urlPhoto, String name, String profilePic, String message_type, String time) {
+        this.message = message;
+        this.urlPhoto = urlPhoto;
         this.name = name;
         this.profilePic = profilePic;
         this.message_type = message_type;
