@@ -72,7 +72,18 @@
         <TextView
             android:layout_width="337dp"
             android:layout_height="35dp"
+            android:fontFamily="@font/jaldi"
+            android:layout_marginLeft="15dp"
+            android:hint="Type a message"
+            android:textColor="#C4C4C4"
+            android:textSize="15sp"
             android:background="@drawable/rounded_type_message_shape"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/send_message_icon" />
 
     </LinearLayout>
 
