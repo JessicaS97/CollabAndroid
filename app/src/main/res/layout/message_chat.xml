@@ -37,12 +37,14 @@
                 android:src="@drawable/back_black_icon"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="profilePicMessageChat"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/profile_empty_icon" />
 
             <TextView
+                android:id="@+id/userNameMessageChat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -67,9 +69,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
+            android:id="@+id/sendMessageText"
             android:layout_width="337dp"
             android:layout_height="35dp"
             android:fontFamily="@font/jaldi"
@@ -80,6 +84,7 @@
             android:background="@drawable/rounded_type_message_shape"/>
 
         <ImageView
+            android:id="@+id/sendMessageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
