@@ -67,4 +67,12 @@ public class Message {
     public void setTime(String time) {
         this.time = time;
     }
+
+    public String getUrlPhoto() {
+        return urlPhoto;
+    }
+
+    public void setUrlPhoto(String urlPhoto) {
+        this.urlPhoto = urlPhoto;
+    }
 }

@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +39,12 @@ public class AdapterMessageChat extends RecyclerView.Adapter<MessageHolder> {
         holder.getMessage().setText(messageList.get(position).getMessage());
         holder.getTime().setText(messageList.get(position).getTime());
         if (messageList.get(position).getMessage_type().equals("2")) {
-
+            holder.getMessagePhoto().setVisibility(View.VISIBLE);
+            holder.getMessage().setVisibility(View.VISIBLE);
+            Glide.with(context).load(messageList.get(position).getUrlPhoto()).into(holder.getMessagePhoto());
+        } else if (messageList.get(position).getMessage_type().equals("1")) {
+            holder.getMessagePhoto().setVisibility(View.GONE);
+            holder.getMessage().setVisibility(View.VISIBLE);
         }
     }
 
