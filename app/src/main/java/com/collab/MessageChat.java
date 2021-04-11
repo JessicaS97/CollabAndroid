@@ -28,6 +28,7 @@ public class MessageChat extends AppCompatActivity {
     CircleImageView profilePicUser;
     TextView userName;
     RecyclerView messageRecyclerView;
+    ImageView sendImageButton;
 
     AdapterMessageChat adapter;
     FirebaseDatabase database;
@@ -43,6 +44,7 @@ public class MessageChat extends AppCompatActivity {
         textMessage = findViewById(R.id.sendMessageText);
         sendMessageButton = findViewById(R.id.sendMessageButton);
         messageRecyclerView = findViewById(R.id.messagesRecyclerView);
+        sendImageButton = findViewById(R.id.sendImageButton);
 
         adapter = new AdapterMessageChat(this);
         database = FirebaseDatabase.getInstance();
@@ -58,6 +60,16 @@ public class MessageChat extends AppCompatActivity {
             public void onClick(View v) {
                 databaseReference.push().setValue(new Message(textMessage.getText().toString(), userName.getText().toString(), "", "1", "00:00"));
                 textMessage.setText("");
+            }
+        });
+
+        sendImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/jpeg");
+                intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+                startActivityForResult(Intent.createChooser(intent, "Select an image"), 1);
             }
         });
 
