@@ -37,7 +37,7 @@
                 android:src="@drawable/back_black_icon"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="profilePicMessageChat"
+                android:id="@+id/profilePicMessageChat"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
