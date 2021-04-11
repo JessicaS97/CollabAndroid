@@ -37,12 +37,23 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
+        android:visibility="gone"
         android:fontFamily="@font/jaldi"
         android:text="What time?"
         android:textColor="#696969"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/profilePic"
         app:layout_constraintTop_toBottomOf="@+id/groupNameMessages" />
+
+    <ImageView
+        android:id="@+id/photoMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toEndOf="@+id/profilePic"
+        app:layout_constraintTop_toBottomOf="@+id/groupNameMessages"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/timeMessage"

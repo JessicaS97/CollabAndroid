@@ -36,6 +36,9 @@ public class AdapterMessageChat extends RecyclerView.Adapter<MessageHolder> {
         holder.getName().setText(messageList.get(position).getName());
         holder.getMessage().setText(messageList.get(position).getMessage());
         holder.getTime().setText(messageList.get(position).getTime());
+        if (messageList.get(position).getMessage_type().equals("2")) {
+
+        }
     }
 
     @Override
