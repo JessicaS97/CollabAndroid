@@ -51,7 +51,7 @@ public class MessagesMenu extends AppCompatActivity {
                             messageList.add(ds.getValue(Group.class));
                         }
                         AdapterClass adapterClass = new AdapterClass(getApplicationContext(), messageList);
-                        groupRecycleView.setAdapter(adapterClass);
+                        messageRecycleView.setAdapter(adapterClass);
                     }
                 }
 
