@@ -12,6 +12,11 @@ public class MessageSend extends Message {
         this.time = time;
     }
 
+    public MessageSend(String message, String name, String profilePic, String message_type, Map time) {
+        super(message, name, profilePic, message_type);
+        this.time = time;
+    }
+
     public MessageSend(String message, String urlPhoto, String name, String profilePic, String message_type, Map time) {
         super(message, urlPhoto, name, profilePic, message_type);
         this.time = time;

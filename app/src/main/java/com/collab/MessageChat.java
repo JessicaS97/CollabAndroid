@@ -23,6 +23,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -70,7 +71,7 @@ public class MessageChat extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                databaseReference.push().setValue(new Message(textMessage.getText().toString(), userName.getText().toString(), "", "1", "00:00"));
+                databaseReference.push().setValue(new MessageSend(textMessage.getText().toString(), userName.getText().toString(), "", "1", ServerValue.TIMESTAMP));
                 textMessage.setText("");
             }
         });
@@ -95,7 +96,7 @@ public class MessageChat extends AppCompatActivity {
         databaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Message message = snapshot.getValue(Message.class);
+                MessageReceive message = snapshot.getValue(MessageReceive.class);
                 adapter.addMessage(message);
             }
 
@@ -138,7 +139,7 @@ public class MessageChat extends AppCompatActivity {
                     Task<Uri> uri = taskSnapshot.getStorage().getDownloadUrl();
                     while(!uri.isComplete());
                     Uri url = uri.getResult();
-                    Message message = new Message("Paul has sent you a message", url.toString(), userName.getText().toString(), "", "2", "00:00");
+                    MessageSend message = new MessageSend("Paul has sent you a message", url.toString(), userName.getText().toString(), "", "2", ServerValue.TIMESTAMP);
                     databaseReference.push().setValue(message);
                 }
             });

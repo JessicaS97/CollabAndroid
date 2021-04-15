@@ -11,18 +11,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.SimpleTimeZone;
 
 public class AdapterMessageChat extends RecyclerView.Adapter<MessageHolder> {
-    private List<Message> messageList = new ArrayList<>();
+    private List<MessageReceive> messageList = new ArrayList<>();
     private Context context;
 
     public AdapterMessageChat(Context context) {
         this.context = context;
     }
 
-    public void addMessage(Message message) {
+    public void addMessage(MessageReceive message) {
         messageList.add(message);
         notifyItemInserted(messageList.size());
     }
@@ -38,7 +41,6 @@ public class AdapterMessageChat extends RecyclerView.Adapter<MessageHolder> {
     public void onBindViewHolder(@NonNull MessageHolder holder, int position) {
         holder.getName().setText(messageList.get(position).getName());
         holder.getMessage().setText(messageList.get(position).getMessage());
-        holder.getTime().setText(messageList.get(position).getTime());
         if (messageList.get(position).getMessage_type().equals("2")) {
             holder.getMessagePhoto().setVisibility(View.VISIBLE);
             holder.getMessage().setVisibility(View.VISIBLE);
@@ -47,6 +49,11 @@ public class AdapterMessageChat extends RecyclerView.Adapter<MessageHolder> {
             holder.getMessagePhoto().setVisibility(View.GONE);
             holder.getMessage().setVisibility(View.VISIBLE);
         }
+
+        Long hourTime = messageList.get(position).getHour();
+        Date date = new Date(hourTime);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss a");
+        holder.getTime().setText(simpleDateFormat.format(date));
     }
 
     @Override
