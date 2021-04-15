@@ -6,26 +6,23 @@ public class Message {
     private String name;
     private String profilePic;
     private String message_type;
-    private String time;
 
     public Message() {
     }
 
-    public Message(String message, String name, String profilePic, String message_type, String time) {
+    public Message(String message, String name, String profilePic, String message_type) {
         this.message = message;
         this.name = name;
         this.profilePic = profilePic;
         this.message_type = message_type;
-        this.time = time;
     }
 
-    public Message(String message, String urlPhoto, String name, String profilePic, String message_type, String time) {
+    public Message(String message, String urlPhoto, String name, String profilePic, String message_type) {
         this.message = message;
         this.urlPhoto = urlPhoto;
         this.name = name;
         this.profilePic = profilePic;
         this.message_type = message_type;
-        this.time = time;
     }
 
     public String getMessage() {
@@ -58,14 +55,6 @@ public class Message {
 
     public void setMessage_type(String message_type) {
         this.message_type = message_type;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 
     public String getUrlPhoto() {

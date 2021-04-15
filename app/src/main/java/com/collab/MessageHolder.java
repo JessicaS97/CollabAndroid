@@ -1,5 +1,6 @@
 package com.collab;
 
+import android.media.Image;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,7 +23,7 @@ public class MessageHolder extends RecyclerView.ViewHolder {
         message = itemView.findViewById(R.id.message);
         time = itemView.findViewById(R.id.timeMessage);
         imageMessage = itemView.findViewById(R.id.profilePicMessage);
-        messagePhoto = itemView.findViewById(R.id.photoMessage);
+        messagePhoto = (ImageView) itemView.findViewById(R.id.messagePhoto);
     }
 
     public TextView getName() {
