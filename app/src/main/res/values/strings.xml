@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Gotchu</string>
     <string name="title_welcome">Welcome to Gotchu</string>
-    <string name="subtitle_initialScreen">Find the right people for any occasion</string>
+    <string name="subtitle_initialScreen">Self improvement was never this easy</string>
     <string name="logIn">Log In</string>
     <string name="interests">Interests</string>
     <string name="full_name">Full Name</string>
